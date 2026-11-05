@@ -1,0 +1,16 @@
+{
+  "_note": "ASSUMED roof for an anonymised warehouse in Hooghly district. All values are assumptions, see ASSUMPTIONS.md. Replace with measured values when a real roof is surveyed.",
+  "ridge_length_m": 60.0,
+  "slope_length_m": 20.0,
+  "slopes": [
+    {"name": "East slope", "azimuth_deg": 90},
+    {"name": "West slope", "azimuth_deg": 270}
+  ],
+  "roof_tilt_deg": 7.0,
+  "edge_setback_eave_m": 1.0,
+  "edge_setback_gable_m": 1.0,
+  "ridge_setback_m": 0.5,
+  "translucent_strips_per_slope": 2,
+  "translucent_strip_width_m": 1.2,
+  "translucent_keepout_each_side_m": 0.5
+}

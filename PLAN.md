@@ -2,8 +2,8 @@
 
 | Phase | Scope | Status |
 |---|---|---|
-| 0 | Repository and hosting setup | In progress |
-| 1 | Roof survey method, assumed client, hourly load profile, survey checklist | Not started |
+| 0 | Repository and hosting setup | Done |
+| 1 | Roof survey method, assumed client, hourly load profile, survey checklist | Done (assumed roof) |
 | 2 | Sizing, string design, layout, wind-load note, PVsyst model | Not started |
 | 3 | Grid connection and regulation, single-line diagram | Not started |
 | 4 | RESCO financial model and sensitivity | Not started |
