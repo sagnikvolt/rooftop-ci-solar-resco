@@ -71,3 +71,11 @@ def test_breaker_sizes():
     r = ac_side.ac_side(2)
     assert r["breaker_per_inverter_a"] == 200      # 158.8 x 1.25 = 198.5 A -> 200 A
     assert r["breaker_main_a"] == 400              # 317.5 x 1.25 = 397 A -> 400 A
+
+
+def test_commissioning_expected_voc():
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "commissioning"))
+    import expected_values
+    # 17 x 51.90 = 882.3 V at 25 degC; at 45 degC: 882.3 x (1 - 0.0026 x 20) = 836.4 V
+    assert abs(expected_values.expected(25)["voc_v"] - 882.3) < 0.01
+    assert abs(expected_values.expected(45)["voc_v"] - 836.42) < 0.05
