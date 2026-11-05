@@ -2,7 +2,7 @@
 
 **Goal:** design a 300 to 500 kWp rooftop solar plant for a factory or warehouse roof in the Hooghly/Howrah industrial belt, and model it as a RESCO project (the developer owns and runs the plant, the client pays per kWh).
 
-**Status:** in progress (Phases 0 to 3 done: design, PVsyst run, layout, single-line diagram, grid connection note. Next: RESCO financial model).
+**Status:** in progress (Phases 0 to 4 done: design, PVsyst, layout, SLD, grid connection note, RESCO model. Next: commissioning checklist and safety page, then the website and report).
 
 > Design decisions, inputs and checks are mine; AI tools assisted with scripting and documentation.
 

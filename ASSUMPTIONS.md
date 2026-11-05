@@ -36,3 +36,10 @@ Format: parameter | value | source | reason. Add a row for every design or finan
 | AC breaker sizes | 200 A per inverter, 400 A main | ASSUMED (125 % of continuous current, next standard frame) | design/ac_side.py; to be confirmed by a protection study |
 | Grid connection | Plant ties into the client's LT bus; net meter on the HT side | VERIFICATION.md (WBSEDCL document) | Rule for an HT consumer connecting at its LT bus |
 | Cap reading | Cap applied as 350 kVA x 0.95 = 332 kWp | ASSUMED (generous reading) | The WBSEDCL document pairs 170 kW with 200 kVA (about 0.85), which would give 297.5 kW; see grid/grid_connection_note.md |
+| O&M cost | 1 % of capex per year, escalating with the tariff | ASSUMED | No O&M figure found in any source fetched |
+| Tariff escalation | 2 % per year on grid and RESCO tariffs | ASSUMED | Keeps the discount constant; no forecast sourced |
+| Base RESCO discount | 20 % off the grid energy charge | ASSUMED | Low end of the 20 to 50 % seen in a general guide; shown with sensitivities |
+| Discount rate for NPV | 10 % | ASSUMED | Typical order of magnitude; shown only as a yardstick |
+| Demand charge savings | Zero | Design choice | Solar cannot be relied on to cut contract demand; conservative |
+| Export value | HV feed-in tariff Rs 3.89 per kWh (net billing reading) | VERIFICATION.md | Net metering would credit against imports instead; exports are only 8 % of output |
+| Tax, loan, inverter replacement | Not modelled | Design choice | Keeps the model simple enough to explain; listed as limits in resco/results.md |
