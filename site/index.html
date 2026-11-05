@@ -4,407 +4,449 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rooftop C&amp;I Solar and RESCO Model</title>
-<meta name="description" content="Design study: a 307 kWp rooftop plant on an assumed warehouse roof in Hooghly district, West Bengal, with a RESCO tariff calculator. About 19% developer return, ₹5.3 lakh client saving in year 1.">
+<meta name="description" content="Design study RCI-307-DS-01: a 307 kWp rooftop PV plant on an assumed warehouse roof in Hooghly district, West Bengal. Energy yield, grid connection and RESCO financial model with a calculator.">
 <link rel="canonical" href="https://rooftop.sagniknath.in/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="A 307 kWp rooftop plant, from survey to RESCO contract">
-<meta property="og:description" content="Design study for an assumed warehouse roof in Hooghly district: 409 MWh a year, RESCO tariff ₹5.65/kWh, about 19% return, client saves ₹5.3 lakh in year 1.">
+<meta property="og:title" content="307 kWp Rooftop Solar PV, C&amp;I shed, Hooghly district: design study and RESCO model">
+<meta property="og:description" content="Design study RCI-307-DS-01. 409 MWh a year, RESCO tariff ₹5.65/kWh, about 19% return, client saves ₹5.3 lakh in year 1.">
 <meta property="og:image" content="https://rooftop.sagniknath.in/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Roof layout drawing and three headline numbers of the rooftop solar design study">
+<meta property="og:image:alt" content="Title block, roof layout drawing and three headline numbers of the rooftop solar design study">
 <meta property="og:url" content="https://rooftop.sagniknath.in/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#EDF0EE" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#10171C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
-/* apply a saved theme before first paint, so there is no flash */
-try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+/* a saved choice of dark mode is applied before first paint; the default is light */
+try { if (localStorage.getItem("theme") === "dark") document.documentElement.setAttribute("data-theme", "dark"); } catch (e) {}
 </script>
 <style>
 :root{
-  --paper:#EDF0EE; --ink:#10202B; --steel:#4A5C68; --rule:#C3CCCA; --sheet:#FFFFFF;
-  --solar:#C47A00; --solar-fill:rgba(196,122,0,.22); --load:#1D63B8; --warn:#9A3B1F; --focus:#1D63B8;
-  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --text:"Source Serif 4",Georgia,serif;
-  --navh:48px;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --paper:#10171C; --ink:#E4EAED; --steel:#9AABB5; --rule:#2A3841; --sheet:#182229;
-    --solar:#E7A92A; --solar-fill:rgba(231,169,42,.25); --load:#5AA2EE; --warn:#F08A6A; --focus:#5AA2EE;
-  }
+  --paper:#FFFFFF; --panel:#F3F5F7; --ink:#1B2127; --steel:#59636D; --rule:#CDD3D9; --rule2:#98A2AC;
+  --blue:#1F5FAD; --bar:#7C93AD; --solar:#B77D1E; --solar-fill:rgba(183,125,30,.20); --warn:#A33A22;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --navh:46px;
 }
 :root[data-theme="dark"]{
-  --paper:#10171C; --ink:#E4EAED; --steel:#9AABB5; --rule:#2A3841; --sheet:#182229;
-  --solar:#E7A92A; --solar-fill:rgba(231,169,42,.25); --load:#5AA2EE; --warn:#F08A6A; --focus:#5AA2EE;
+  --paper:#14181C; --panel:#1B2127; --ink:#E3E7EA; --steel:#9AA5AE; --rule:#2E373F; --rule2:#55616B;
+  --blue:#6AA3E8; --bar:#5F7A98; --solar:#D9A441; --solar-fill:rgba(217,164,65,.22); --warn:#F0937A;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--navh) + 8px)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{margin:0;background:var(--paper);color:var(--ink);font:1.0625rem/1.65 var(--text);-webkit-text-size-adjust:100%}
-:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:2px}
-a{color:var(--load);text-underline-offset:3px}
-h1,h2,h3{font-family:var(--display);font-stretch:78%;font-weight:760;letter-spacing:-.01em;line-height:1.05;margin:0}
-h1{font-size:clamp(2.1rem,6.4vw,4.2rem);max-width:17ch}
-h2{font-size:clamp(1.7rem,4vw,2.5rem);margin-bottom:.6rem}
-h3{font-size:1.25rem;font-stretch:90%;font-weight:700;margin:1.6rem 0 .3rem}
-p{margin:.7rem 0;max-width:64ch}
-.wrap{max-width:72rem;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
-section{padding:clamp(32px,6vw,68px) 0;border-top:1px solid var(--rule)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--navh) + 12px)}
+@media (min-width:1200px){html{scroll-padding-top:24px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.6 var(--sans);-webkit-text-size-adjust:100%}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+a{color:var(--blue);text-underline-offset:3px}
+h1,h2,h3{font-family:var(--sans);font-weight:600;line-height:1.25;margin:0}
+h2{font-size:1.35rem;margin:0 0 .6rem;padding-bottom:.35rem;border-bottom:1px solid var(--ink)}
+h2 .n{font-family:var(--mono);font-weight:500;margin-right:.7rem;color:var(--steel)}
+h3{font-size:1rem;margin:1.5rem 0 .4rem}
+h3 .n{font-family:var(--mono);font-weight:500;margin-right:.6rem;color:var(--steel)}
+p{margin:.6rem 0;max-width:68ch}
+section{padding:2rem 0 .5rem}
+.mono,td.v,.v{font-family:var(--mono)}
 .sr{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.small{font-size:.9rem;color:var(--steel);max-width:70ch}
+.small{font-size:.875rem;color:var(--steel)}
+.note{font-size:.875rem;color:var(--steel);max-width:72ch;margin:.5rem 0}
+.note b{color:var(--ink);font-weight:600}
 
-/* sticky mini-nav */
-.mini{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:stretch;height:var(--navh)}
-.mini .scroller{flex:1;min-width:0;display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-left:max(8px,calc((100vw - 72rem)/2 + 24px))}
-.mini .scroller::-webkit-scrollbar{display:none}
-.mini a{flex:none;display:flex;align-items:center;padding:0 12px;min-height:44px;font-family:var(--display);font-stretch:90%;font-weight:600;font-size:.95rem;color:var(--ink);text-decoration:none;border-bottom:3px solid transparent}
-.mini a[aria-current=true]{border-bottom-color:var(--solar)}
-.mini a:hover{background:var(--sheet)}
-.mini .theme{flex:none;margin:0 max(8px,calc((100vw - 72rem)/2 + 24px)) 0 4px;align-self:center;min-width:44px;min-height:44px;font:inherit;font-family:var(--display);font-weight:600;font-size:.9rem;background:transparent;color:var(--ink);border:0;cursor:pointer}
-.mini::after{content:"";position:absolute;right:56px;top:0;bottom:0;width:22px;background:linear-gradient(90deg,transparent,var(--paper));pointer-events:none}
-
-/* hero */
-header.top{padding:clamp(18px,4vw,44px) 0 clamp(20px,4vw,36px)}
-.lede{font-size:clamp(1.02rem,2.6vw,1.25rem);max-width:50ch;margin:.7rem 0 0;line-height:1.5}
-.kpis{list-style:none;margin:1.1rem 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.kpis li{background:var(--sheet);border:1px solid var(--rule);border-top:3px solid var(--ink);padding:10px 12px 9px;min-width:0}
-.kpis li:last-child{grid-column:1/-1}
-.kpis .big{display:block;font-family:var(--display);font-stretch:75%;font-weight:780;font-size:clamp(1.7rem,7.2vw,2.5rem);line-height:1.05;font-variant-numeric:tabular-nums;white-space:nowrap}
-.kpis .big small{font-size:.5em;font-weight:650;font-stretch:90%;color:var(--steel)}
-.kpis .lab{display:block;font-family:var(--display);font-stretch:90%;font-size:.82rem;line-height:1.3;color:var(--steel);margin-top:3px}
-.kpis li.hot{border-top-color:var(--solar)}
-@media (min-width:900px){.kpis{grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.45fr);gap:12px}.kpis li:last-child{grid-column:auto}.kpis li{padding:14px 14px 12px}.kpis .big{font-size:clamp(1.6rem,2.6vw,2.2rem)}}
-.cta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:1rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;font-family:var(--display);font-stretch:90%;font-weight:700;font-size:1rem;background:var(--ink);color:var(--paper);border:2px solid var(--ink);border-radius:4px;text-decoration:none;cursor:pointer}
-.btn.ghost{background:transparent;color:var(--ink)}
-.honest{font-style:italic;color:var(--steel);font-size:.85rem;max-width:62ch;margin:.9rem 0 0;line-height:1.45}
-.legend{display:flex;flex-wrap:wrap;gap:4px 20px;font-family:var(--display);font-stretch:90%;font-size:.88rem;margin:.9rem 0 0;color:var(--steel)}
-/* provenance marks: filled = verified, half = partly verified, ring = assumed */
-.m{display:inline-block;width:.74em;height:.74em;border-radius:50%;border:2px solid var(--ink);margin:0 .3em 0 .2em;vertical-align:-.04em;background:transparent}
-.m.v{background:var(--ink)}
-.m.p{background:linear-gradient(90deg,var(--ink) 50%,transparent 50%)}
-.m.a{background:transparent}
-
-dl.facts{margin:1rem 0;display:grid;grid-template-columns:minmax(9rem,13rem) minmax(0,1fr);gap:0}
-dl.facts dt,dl.facts dd{margin:0;padding:.55rem 0;border-bottom:1px solid var(--rule)}
-dl.facts dt{font-family:var(--display);font-stretch:90%;font-weight:600;padding-right:14px}
-dl.facts dd{font-variant-numeric:tabular-nums}
-@media (max-width:560px){dl.facts{grid-template-columns:1fr}dl.facts dt{border:0;padding-bottom:0}dl.facts dd{padding-top:.1rem}}
-.num{font-family:var(--display);font-stretch:85%;font-weight:700;font-variant-numeric:tabular-nums}
-
-/* two-column layouts on laptop */
-.cols{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
-.cols>aside{font-size:.92rem;color:var(--steel);line-height:1.5;border-top:1px solid var(--rule);padding-top:10px;margin-top:14px}
-.cols>aside p{margin:.3rem 0 .9rem}
-@media (min-width:1000px){
-  .cols{grid-template-columns:minmax(0,1fr) 17rem;gap:0 clamp(32px,4vw,56px)}
-  .cols>aside{border-top:0;border-left:2px solid var(--rule);padding:.3rem 0 0 16px;margin-top:0;align-self:start}
+/* page frame: sidebar contents on wide screens, horizontal bar otherwise */
+.page{display:block;max-width:880px;margin:0 auto;padding:0 16px}
+@media (min-width:700px){.page{padding:0 28px}}
+@media (min-width:1200px){.page{display:grid;grid-template-columns:210px minmax(0,880px);gap:0 56px;max-width:1190px;padding:0 24px}}
+aside.toc{display:none}
+@media (min-width:1200px){
+  aside.toc{display:block;position:sticky;top:0;align-self:start;padding:28px 0;height:100vh;overflow:auto}
 }
-.notes{font-size:.92rem;color:var(--steel);line-height:1.5}.notes p{margin:.3rem 0 .8rem}
-.roofgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:8px 40px;margin-top:1rem}
-@media (min-width:1000px){.roofgrid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:start}.roofgrid dl.facts{margin-top:0}}
+aside.toc .t{font:600 .75rem var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--steel);margin:0 0 .6rem}
+aside.toc ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+aside.toc a{display:flex;gap:.7rem;padding:.5rem .4rem;border-bottom:1px solid var(--rule);color:var(--ink);text-decoration:none;font-size:.9rem;border-left:3px solid transparent}
+aside.toc a .n{font-family:var(--mono);color:var(--steel)}
+aside.toc a[aria-current=true]{border-left-color:var(--blue);background:var(--panel);font-weight:600}
+aside.toc .meta{font-size:.8rem;color:var(--steel);margin-top:1rem;line-height:1.45}
+nav.bar{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--rule2);margin:0 -16px;padding:0 8px;height:var(--navh);overflow-x:auto;display:flex;scrollbar-width:none}
+@media (min-width:700px){nav.bar{margin:0 -28px;padding:0 20px}}
+nav.bar::-webkit-scrollbar{display:none}
+@media (min-width:1200px){nav.bar{display:none}}
+nav.bar a{flex:none;display:flex;align-items:center;gap:.4rem;min-height:44px;padding:0 11px;color:var(--ink);text-decoration:none;font-size:.9rem;border-bottom:3px solid transparent}
+nav.bar a .n{font-family:var(--mono);color:var(--steel)}
+nav.bar a[aria-current=true]{border-bottom-color:var(--blue);font-weight:600}
 
-/* figures with tap-to-enlarge */
-figure{margin:0}
-figure a.zoom{display:block;position:relative;background:#fff;border:1px solid var(--rule);padding:6px;cursor:zoom-in}
-figure img{display:block;width:100%;height:auto}
-figure a.zoom::after{content:"Tap to enlarge";position:absolute;right:8px;bottom:8px;background:var(--ink);color:var(--paper);font:600 .8rem var(--display);padding:4px 9px;border-radius:3px}
-@media (hover:hover){figure a.zoom::after{content:"Click to enlarge"}}
-figcaption{font-size:.9rem;color:var(--steel);margin-top:.5rem;max-width:64ch;line-height:1.5}
+/* title block */
+.tb{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--ink);border:1px solid var(--ink);margin:1.2rem 0 0}
+.tb>div{padding:.45rem .7rem .5rem;min-width:0;background:var(--paper)}
+.tb .l{display:block;font:500 .75rem var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--steel)}
+.tb .val{display:block;font-size:.95rem;margin-top:1px}
+.tb .proj,.tb .date{grid-column:1/-1}
+.tb h1{font-size:1.2rem;line-height:1.3;font-weight:600;margin-top:2px}
+@media (min-width:700px){
+  .tb{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .tb .proj{grid-column:span 3}.tb .doc{grid-column:span 2}.tb .rev,.tb .date{grid-column:span 1}
+  .tb .prep{grid-column:span 3}.tb .stat{grid-column:span 2}
+}
+.scope{margin:1rem 0 .4rem}
+.links{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;margin:.7rem 0 .2rem}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;font:500 .95rem var(--sans);background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:3px;text-decoration:none;cursor:pointer}
+.btn.plain{background:var(--panel);color:var(--ink);border:1px solid var(--rule2)}
+:root[data-theme="dark"] .btn{color:#0E1317}
+
+/* tables */
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+table.data{margin:.5rem 0 .3rem;border:1px solid var(--rule2)}
+table.data th{font:500 .75rem var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--steel);background:var(--panel);text-align:left;padding:.4rem .6rem;border-bottom:1px solid var(--rule2)}
+table.data td{padding:.42rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+table.data tr:last-child td{border-bottom:0}
+table.data td.v{font-family:var(--mono);font-size:.82rem;font-variant-numeric:tabular-nums}
+table.data td.v.r,table.data th.r{text-align:right}
+table.data td.s,table.data th.s{width:3.2rem;text-align:center;padding-left:.2rem;padding-right:.2rem}
+.src{display:inline-block;min-width:1.5rem;font:500 .8rem var(--mono);border:1px solid var(--rule2);border-radius:2px;padding:0 .3rem;color:var(--ink);line-height:1.35}
+caption{caption-side:top;text-align:left;font:600 .8rem var(--sans);color:var(--ink);padding:0 0 .25rem}
+.band table.data td{padding:.3rem .5rem;line-height:1.35}.band table.data td.v{white-space:nowrap}
+.keyline{font-size:.875rem;color:var(--steel);margin:.3rem 0 1rem}
+@media (max-width:640px){
+  table.stack thead{position:absolute;left:-9999px}
+  table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:100%}
+  table.stack{border:0}
+  table.stack caption{display:block;width:100%}
+  table.stack tr{padding:.5rem 0;border-bottom:1px solid var(--rule)}
+  table.stack td{border:0;padding:.1rem 0}
+  table.stack td::before{content:attr(data-l);display:block;font:500 .75rem var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--steel)}
+  table.stack td:first-child{font-weight:600}
+  table.stack td:first-child::before{display:none}
+  table.stack td.s{width:auto;text-align:left;padding-left:0}
+}
+
+/* drawings */
+figure{margin:1rem 0}
+.dwg{border:1px solid var(--ink);background:#fff}
+.dwg a.zoom{display:block;padding:6px;cursor:zoom-in;background:#fff}
+.dwg img{display:block;width:100%;height:auto}
+.dwg figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--ink);background:var(--panel);padding:.3rem .6rem;font-size:.8rem;color:var(--ink)}
+.dwg figcaption b{font-family:var(--mono);font-weight:600;margin-right:.6rem}
+.dwg figcaption span.r{color:var(--steel)}
+.band{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin:1.2rem 0 0;align-items:start}
+@media (min-width:900px){.band{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}.band table.data{margin-top:0}}
 dialog#lb{border:0;padding:0;margin:0;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;background:var(--paper);color:var(--ink)}
-dialog#lb::backdrop{background:rgba(0,0,0,.6)}
-#lb .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:8px 14px;background:var(--paper);border-bottom:1px solid var(--rule);z-index:2}
-#lb .bar span{font-size:.85rem;color:var(--steel)}
+dialog#lb::backdrop{background:rgba(0,0,0,.55)}
+#lb .bar2{position:sticky;top:0;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:8px 14px;background:var(--paper);border-bottom:1px solid var(--ink);z-index:2;font-size:.9rem}
 #lb .pan{overflow:auto;height:calc(100dvh - 61px);-webkit-overflow-scrolling:touch;background:#fff}
 #lb img{display:block;width:max(100%,1100px);height:auto}
 
 /* controls */
-.controls{display:grid;grid-template-columns:minmax(0,1fr);gap:14px 28px;margin:1.1rem 0 .6rem}
-@media (min-width:700px){.controls.row{grid-template-columns:repeat(3,minmax(0,1fr));align-items:end}}
-.ctl{display:flex;flex-direction:column;gap:2px;font-family:var(--display);font-stretch:90%;font-weight:600;font-size:1rem;min-width:0}
-.ctl .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
-.ctl output{font-variant-numeric:tabular-nums;font-weight:760;white-space:nowrap}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;margin:0;cursor:pointer;touch-action:pan-y}
-input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:var(--rule);border:1px solid var(--steel)}
-input[type=range]::-moz-range-track{height:6px;border-radius:3px;background:var(--rule);border:1px solid var(--steel)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:30px;height:30px;border-radius:50%;background:var(--load);border:3px solid var(--sheet);box-shadow:0 0 0 1.5px var(--ink);margin-top:-12px}
-input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--load);border:3px solid var(--sheet);box-shadow:0 0 0 1.5px var(--ink)}
-select,.seg button{font:inherit;font-family:var(--display);font-stretch:90%;font-weight:600;font-size:1rem;background:var(--sheet);color:var(--ink);border:1px solid var(--steel);padding:0 12px;border-radius:3px;min-height:44px;width:100%}
+input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--rule2)}
+input[type=range]::-moz-range-track{height:4px;background:var(--rule2)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:3px;background:var(--blue);border:2px solid var(--paper);outline:1px solid var(--ink);margin-top:-11px}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:3px;background:var(--blue);border:2px solid var(--paper);outline:1px solid var(--ink)}
+select,.seg button{font:500 .95rem var(--sans);background:var(--paper);color:var(--ink);border:1px solid var(--rule2);padding:0 10px;border-radius:3px;min-height:44px;width:100%}
 .seg{display:flex}
 .seg button{border-radius:0;cursor:pointer;flex:1}
 .seg button:first-child{border-radius:3px 0 0 3px}.seg button:last-child{border-radius:0 3px 3px 0;border-left:0}
-.seg button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
-.key{display:flex;flex-wrap:wrap;gap:2px 18px;font-family:var(--display);font-stretch:90%;font-size:.9rem;margin:.6rem 0 .3rem}
-.key i{display:inline-block;width:18px;height:4px;vertical-align:middle;margin-right:6px;border-radius:2px}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.dayctl{display:grid;grid-template-columns:minmax(0,1fr);gap:8px 20px;margin:.6rem 0}
+@media (min-width:700px){.dayctl{grid-template-columns:repeat(3,minmax(0,1fr));align-items:end}}
+.fld{display:flex;flex-direction:column;gap:2px;min-width:0}
+.fld .lab{display:flex;justify-content:space-between;font-size:.875rem;color:var(--steel)}
+.fld .lab output{font-family:var(--mono);color:var(--ink)}
+.key{display:flex;flex-wrap:wrap;gap:2px 18px;font-size:.85rem;margin:.5rem 0 .3rem}
+.key i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px}
 
 /* charts */
-.chartbox{background:var(--sheet);border:1px solid var(--rule)}
+.chartbox{border:1px solid var(--rule2);background:var(--paper)}
 .chart{width:100%;height:auto;display:block}
-.chart text{font-family:var(--display);font-stretch:90%;fill:var(--steel);font-size:13px}
-.chart .lab{font-weight:700;font-size:13px}
-.readout{font-family:var(--display);font-stretch:88%;font-size:1.1rem;margin:.9rem 0 .2rem;max-width:62ch;line-height:1.4}
-.readout b{font-weight:760;font-variant-numeric:tabular-nums}
-details.table{margin-top:.8rem;font-size:.92rem}
-details.table summary{cursor:pointer;font-family:var(--display);font-stretch:90%;font-weight:600;min-height:32px}
-details.table table{border-collapse:collapse;margin-top:.5rem;font-variant-numeric:tabular-nums}
-details.table th,details.table td{padding:3px 9px;border-bottom:1px solid var(--rule);text-align:right}
-details.table th:first-child,details.table td:first-child{text-align:left}
+.chart text{font-family:var(--mono);fill:var(--steel);font-size:12px}
+.chart .lab{font-weight:600}
+.readout{font-size:.95rem;margin:.7rem 0 .2rem;max-width:68ch}
+.readout b{font-family:var(--mono);font-weight:500}
+.figcap{font-size:.8rem;color:var(--steel);margin:.3rem 0 .8rem}
+.figcap b{color:var(--ink);font-family:var(--mono);font-weight:600;margin-right:.5rem}
+details.tbl{margin-top:.6rem;font-size:.875rem}
+details.tbl summary{cursor:pointer;min-height:32px}
+details.tbl table{width:auto;margin-top:.4rem;font-family:var(--mono);font-size:.8rem}
+details.tbl th,details.tbl td{padding:3px 10px;border-bottom:1px solid var(--rule);text-align:right}
+details.tbl th:first-child,details.tbl td:first-child{text-align:left}
 .scroll{overflow-x:auto}
 
 /* calculator */
-.calc{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:1rem;grid-template-areas:"top" "inputs" "cards" "chart"}
-.calc .a-top{grid-area:top;position:sticky;top:calc(var(--navh) + 6px);z-index:5}
-.calc .a-in{grid-area:inputs}
-.calc .a-cards{grid-area:cards}
-.calc .a-chart{grid-area:chart}
-@media (min-width:1000px){
-  .calc{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:16px 40px;grid-template-areas:"inputs top" "inputs cards" "inputs chart";grid-template-rows:auto auto 1fr;align-items:start}
-  .calc .a-top{position:static}
+.calc{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;grid-template-areas:"mini" "inputs" "results" "chart"}
+.calc .a-mini{grid-area:mini;position:sticky;top:calc(var(--navh) + 4px);z-index:5;background:var(--paper)}
+.calc .a-in{grid-area:inputs}.calc .a-res{grid-area:results}.calc .a-chart{grid-area:chart}
+@media (min-width:760px){
+  .calc{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px 28px;grid-template-areas:"inputs results" "chart chart";align-items:start}
+  .calc .a-mini{display:none}
 }
-.panel{background:var(--sheet);border:1px solid var(--rule);padding:12px 16px 8px}
-.panel .controls{margin-top:.2rem}
-.panel .head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:4px}
-.panel .head h3{margin:0}
-.res-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-@media (min-width:700px){.res-grid.rest{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.res{background:var(--sheet);border:1px solid var(--rule);border-top:3px solid var(--ink);padding:9px 12px 8px;min-width:0}
-.res .big{font-family:var(--display);font-stretch:75%;font-weight:780;font-size:clamp(1.5rem,6vw,2.1rem);line-height:1.05;font-variant-numeric:tabular-nums}
-.res .what{font-family:var(--display);font-stretch:90%;font-size:.82rem;color:var(--steel);margin-top:3px;line-height:1.3}
-.res-grid.rest .big{font-size:clamp(1.35rem,5vw,1.75rem)}
-.res.strong{background:var(--ink);border-color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.18)}
-.res.strong .big{font-size:clamp(1.9rem,8vw,2.8rem);color:var(--paper)}
-.res.strong .what{color:var(--paper);opacity:.9}
-.res .big.warn{color:var(--warn)}
-.res.strong .big.warn{color:#FFB199}
-:root[data-theme="dark"] .res.strong .big.warn{color:#9A3B1F}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .res.strong .big.warn{color:#9A3B1F}}
-
-table.plain{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:.97rem}
-table.plain th,table.plain td{padding:.5rem .6rem .5rem 0;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
-table.plain th{font-family:var(--display);font-stretch:90%;font-weight:650}
-table.loss{max-width:34rem}
-table.loss td:last-child,table.loss th:last-child{text-align:right;padding-right:0}
-@media (max-width:640px){
-  table.stack thead{position:absolute;left:-9999px}
-  table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:100%}
-  table.stack tr{padding:.55rem 0;border-bottom:1px solid var(--rule)}
-  table.stack td{border:0;padding:.1rem 0}
-  table.stack td::before{content:attr(data-l);display:block;font-family:var(--display);font-stretch:90%;font-size:.8rem;font-weight:700;color:var(--steel);text-transform:uppercase;letter-spacing:.04em}
-  table.stack td:first-child{font-weight:700}
-  table.stack td:first-child::before{display:none}
-}
-
-footer{border-top:2px solid var(--ink);padding:32px 0 48px;font-size:.95rem;color:var(--steel);margin-top:0}
-footer .who{color:var(--ink);font-family:var(--display);font-stretch:90%;font-weight:700;font-size:1.15rem;margin:0}
-footer ul{list-style:none;padding:0;margin:.9rem 0;display:flex;flex-wrap:wrap;gap:0 6px}
-footer li a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px 0 0;margin-right:8px}
-footer .fine{font-size:.85rem;max-width:70ch}
+.form{border:1px solid var(--rule2)}
+.form .hd{display:flex;justify-content:space-between;align-items:center;padding:.35rem .6rem;background:var(--panel);border-bottom:1px solid var(--rule2);font:500 .75rem var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--steel)}
+.frow{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"lab out" "rng rng";gap:0 10px;padding:.3rem .6rem 0;border-bottom:1px solid var(--rule)}
+.frow:last-child{border-bottom:0}
+.frow label{grid-area:lab;font-size:.9rem;align-self:end}
+.frow output{grid-area:out;font:500 .85rem var(--mono);align-self:end;white-space:nowrap}
+.frow input{grid-area:rng}
+@media (min-width:760px){.frow{grid-template-columns:9rem minmax(0,1fr) 6.4rem;grid-template-areas:"lab rng out";align-items:center;padding:0 .6rem}.frow label,.frow output{align-self:center}.frow output{text-align:right}}
+.linkbtn{background:none;border:0;color:var(--blue);font:500 .8rem var(--sans);text-transform:none;letter-spacing:0;cursor:pointer;min-height:44px;padding:0 6px;text-decoration:underline}
+.low{color:var(--warn);font-weight:600}
+.mini{width:100%;border:1px solid var(--ink);background:var(--paper)}
+.mini td{padding:.35rem .6rem;font-family:var(--mono);font-size:.95rem;border-right:1px solid var(--rule2)}
+.mini td:last-child{border-right:0}
+.mini small{display:block;font:500 .75rem var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--steel)}
+.aboutbox{border:1px solid var(--rule2);background:var(--panel);padding:.8rem 1rem;margin:1rem 0}
+.aboutbox h3{margin:0 0 .3rem}
+.aboutbox p{margin:.3rem 0;font-size:.95rem}
+footer{border-top:1px solid var(--ink);margin-top:2.5rem;padding:1.2rem 0 3rem;font-size:.9rem}
+footer .who{font-weight:600;margin:0}
+footer ul{list-style:none;padding:0;margin:.6rem 0;display:flex;flex-wrap:wrap;gap:0 4px}
+footer li a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px 0 0}
+footer .fine{font-size:.85rem;color:var(--steel);max-width:76ch}
 </style>
 </head>
 <body id="top">
+<div class="page">
+<aside class="toc" aria-label="Contents">
+  <p class="t">Contents</p>
+  <ol>
+    <li><a href="#site"><span class="n">1</span>Site and roof</a></li>
+    <li><a href="#plant"><span class="n">2</span>Plant design</a></li>
+    <li><a href="#energy"><span class="n">3</span>Energy yield</a></li>
+    <li><a href="#grid"><span class="n">4</span>Grid connection</a></li>
+    <li><a href="#resco"><span class="n">5</span>RESCO financial model</a></li>
+    <li><a href="#commissioning"><span class="n">6</span>Commissioning and safety</a></li>
+    <li><a href="#assumptions"><span class="n">7</span>Assumptions and open items</a></li>
+  </ol>
+  <p class="meta">RCI-307-DS-01 · Rev B<br>05-11-2026<br>Design study, not for construction</p>
+</aside>
 
-<nav class="mini" aria-label="Sections">
-  <div class="scroller">
-    <a href="#top">Overview</a><a href="#roof">Roof</a><a href="#energy">Energy</a><a href="#grid">Grid</a><a href="#calculator">Calculator</a><a href="#assumed">Assumptions</a>
-  </div>
-  <button class="theme" id="themeBtn" type="button" aria-label="Switch colour theme">Theme</button>
+<main>
+<nav class="bar" aria-label="Sections">
+  <a href="#site"><span class="n">1</span>Site</a><a href="#plant"><span class="n">2</span>Plant</a><a href="#energy"><span class="n">3</span>Energy</a><a href="#grid"><span class="n">4</span>Grid</a><a href="#resco"><span class="n">5</span>RESCO</a><a href="#commissioning"><span class="n">6</span>Commissioning</a><a href="#assumptions"><span class="n">7</span>Assumptions</a>
 </nav>
 
-<div class="wrap">
-<header class="top">
-  <h1>A 307 kWp rooftop plant, from survey to RESCO contract</h1>
-  <p class="lede">A design study for an assumed warehouse roof in Hooghly district, West Bengal.</p>
-  <ul class="kpis" aria-label="Headline results">
-    <li><span class="big" id="k_kwp">307 kWp</span><span class="lab" id="k_kwp_l">rooftop, 544 modules</span></li>
-    <li><span class="big" id="k_mwh">409 <small>MWh/yr</small></span><span class="lab">PVsyst yield, PR 84.9%</span></li>
-    <li><span class="big" id="k_tar">₹5.65 <small>/kWh</small></span><span class="lab">RESCO tariff, 20% below the grid</span></li>
-    <li><span class="big" id="k_sav">₹5.3 <small>lakh</small></span><span class="lab">client saves in year 1, no capex</span></li>
-    <li class="hot"><span class="big" id="k_irr">19.4% · 5.3 yr</span><span class="lab">RESCO return a year · payback (no tax, no loan)</span></li>
-  </ul>
-  <div class="cta">
-    <a class="btn" href="assets/rooftop_ci_resco_report.pdf" download>Download PDF report</a>
-    <a class="btn ghost" href="#calculator">Try the calculator</a>
-    <a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco">Code and sources on GitHub</a>
+<header>
+  <div class="tb" role="group" aria-label="Document title block">
+    <div class="proj"><span class="l">Project</span><h1>307 kWp Rooftop Solar PV, C&amp;I shed, Hooghly district, West Bengal</h1></div>
+    <div class="doc"><span class="l">Doc no.</span><span class="val mono">RCI-307-DS-01</span></div>
+    <div class="rev"><span class="l">Rev</span><span class="val mono">B</span></div>
+    <div class="prep"><span class="l">Prepared by</span><span class="val">Sagnik Kumar Nath, B.Tech EE (IEM Kolkata, 2027)</span></div>
+    <div class="stat"><span class="l">Status</span><span class="val">Design study, not for construction</span></div>
+    <div class="date"><span class="l">Date</span><span class="val mono">05-11-2026</span></div>
   </div>
-  <p class="honest">Design decisions, inputs and checks are mine; AI tools assisted with scripting and documentation. The roof and the factory are assumed, not a real client.</p>
-  <p class="legend" aria-label="How to read the marks">
-    <span><i class="m v"></i>Verified against a source</span>
-    <span><i class="m p"></i>Partly verified</span>
-    <span><i class="m a"></i>Assumed, with a reason</span>
-  </p>
-</header>
-</div>
+  <p class="scope">This document records the design, energy yield, grid connection and RESCO financial model of a 307 kWp rooftop PV plant on an assumed warehouse roof in Hooghly district.</p>
+  <div class="links">
+    <a class="btn" href="assets/rooftop_ci_resco_report.pdf" download>PDF report (5 pp)</a>
+    <a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco">Source code on GitHub</a>
+    <a href="#assumptions">Assumptions and sources</a>
+  </div>
 
-<section id="roof" style="border-top:2px solid var(--ink)" aria-labelledby="roof-h">
-<div class="wrap">
-  <h2 id="roof-h">The roof, and what fits on it</h2>
-  <p>The roof is a metal-sheet shed: a 60 m ridge with two 20 m slopes facing east and west, tilted 7°. After setbacks and two skylight strips per slope, 1,983 m² is usable. The plant uses only part of it, because the size is set by the smallest of three limits: the roof, the grid rules, and the factory's daytime load.</p>
-  <div class="roofgrid">
-    <figure>
-      <a class="zoom" href="assets/layout.png" data-full="assets/layout.png" data-cap="Roof plan"><img src="assets/layout.png" alt="Roof plan with the east and west slopes drawn either side of the ridge, modules in colour by string, skylight strips in blue and setbacks dashed" width="1267" height="834" loading="lazy"></a>
-      <figcaption>Roof plan: 16 strings of 17 modules on each slope. Colours show the string grouping (indicative). The empty roof is deliberate spare space.</figcaption>
+  <div class="band">
+    <figure class="dwg" style="margin:0">
+      <a class="zoom" href="assets/layout.png" data-full="assets/layout.png" data-cap="DWG-01 Roof layout"><img src="assets/layout.png" alt="Roof plan with the east and west slopes drawn either side of the ridge, modules coloured by string, skylight strips in blue and setbacks dashed" width="1267" height="834"></a>
+      <figcaption><span><b>DWG-01</b>Roof layout</span><span class="r">Not to scale · Rev B · click to enlarge</span></figcaption>
     </figure>
-    <div>
-      <dl class="facts">
-        <dt>Modules</dt><dd class="num">544 × 565 Wp = 307.4 kWp<i class="m v"></i></dd>
-        <dt>Modules in one string</dt><dd class="num">17<i class="m v"></i></dd>
-        <dt>String voltage, coldest morning</dt><dd class="num">931.8 V against a 1,000 V limit<i class="m v"></i></dd>
-        <dt>Inverters</dt><dd class="num">2 × 110 kVA, DC/AC 1.40<i class="m p"></i></dd>
-        <dt>Roof, setbacks, skylights</dt><dd>Measured on nothing: assumed<i class="m a"></i></dd>
-      </dl>
-      <div class="notes">
-        <p><b>Why 17 modules?</b> A string's open-circuit voltage rises as it gets cold. At the assumed record low of 3.4 °C, 17 modules give 931.8 V; 18 would give 986.7 V, only 1.3% under the 1,000 V connector limit.</p>
-        <p><b>Why this size?</b> Roof limit 407 kWp, grid-rule limit 332 kW, load limit 321 kWp. The smallest wins, then rounds down to whole strings split equally between the slopes.</p>
-        <p><b>Wind.</b> The code gives 50 m/s for Kolkata<i class="m p"></i>. Flush modules weigh only 0.12 kN/m², so the real question is clamp pull-out and purlin strength. That needs the actual roof.</p>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-
-<section id="energy" aria-labelledby="yield-h">
-<div class="wrap cols">
-  <div>
-    <h2 id="yield-h">What the plant makes</h2>
-    <p>PVsyst predicts <span class="num">409,153 kWh</span> a year, or <span class="num">1,331 kWh per kWp</span>, with a performance ratio of <span class="num">84.9%</span><i class="m p"></i>. Orienting the modules east and west costs about 6% against the best single tilt, but it spreads output across the day, which suits a two-shift factory.</p>
-    <div class="chartbox"><svg id="monthChart" class="chart" role="img" aria-labelledby="monTitle"><title id="monTitle">Energy delivered to the grid by month, in megawatt-hours</title></svg></div>
-    <h3>Where the energy goes</h3>
-    <table class="plain loss">
-      <tr><th>Step</th><th>Loss</th></tr>
-      <tr><td>Light hitting the glass at an angle</td><td>2.76%</td></tr>
-      <tr><td>Heat in the cells</td><td>7.52%</td></tr>
-      <tr><td>Mismatch between modules</td><td>2.00%</td></tr>
-      <tr><td>DC cable resistance</td><td>0.88%</td></tr>
-      <tr><td>Inverter efficiency</td><td>2.13%</td></tr>
-      <tr><td>Inverter clipping at DC/AC 1.40</td><td>0.32%</td></tr>
+    <table class="data" id="keyData">
+      <caption>Key design data</caption>
+      <thead><tr><th>Parameter</th><th class="r">Value</th><th class="s">Src</th></tr></thead>
+      <tbody>
+        <tr><td>DC / AC capacity</td><td class="v r" id="kd_cap">307.4 kWp / 220 kVA</td><td class="s"><span class="src">P</span></td></tr>
+        <tr><td>Modules</td><td class="v r">544 × 565 Wp</td><td class="s"><span class="src">V</span></td></tr>
+        <tr><td>String configuration</td><td class="v r">32 × 17 modules</td><td class="s"><span class="src">V</span></td></tr>
+        <tr><td>Inverters</td><td class="v r">2 × 110 kVA</td><td class="s"><span class="src">P</span></td></tr>
+        <tr><td>Annual yield, P50</td><td class="v r" id="kd_mwh">409.2 MWh</td><td class="s"><span class="src">P</span></td></tr>
+        <tr><td>Specific yield</td><td class="v r">1,331 kWh/kWp</td><td class="s"><span class="src">P</span></td></tr>
+        <tr><td>Performance ratio</td><td class="v r">84.9 %</td><td class="s"><span class="src">P</span></td></tr>
+        <tr><td>Self-consumption</td><td class="v r" id="kd_self">92 %</td><td class="s"><span class="src">A</span></td></tr>
+        <tr><td>RESCO tariff, year 1</td><td class="v r" id="kd_tar">₹5.65 /kWh</td><td class="s"><span class="src">A</span></td></tr>
+        <tr><td>RESCO IRR / payback</td><td class="v r" id="kd_irr">19.4 % / 5.3 yr</td><td class="s"><span class="src">A</span></td></tr>
+        <tr><td>Client saving, yr 1 / 25 yr</td><td class="v r" id="kd_sav">₹5.28 lakh / ₹1.60 cr</td><td class="s"><span class="src">A</span></td></tr>
+      </tbody>
     </table>
   </div>
-  <aside>
-    <p><b>Read this before quoting the yield.</b> The simulation leaves soiling, shading and downtime at zero, uses synthetic weather for Kolkata (about 30 km from Hooghly), and treats the bifacial module as single-sided. Real output will be lower.</p>
-    <p>The PVsyst licence showed 0 days remaining when the run was made. It ran normally, but the report should be re-run on a valid licence before it is treated as final.</p>
-  </aside>
-</div>
-</section>
+  <p class="keyline">Src: V verified, P partly verified, A assumed or computed from assumed inputs (key in Section 7).</p>
+</header>
 
-<section id="day" aria-labelledby="day-h">
-<div class="wrap">
-  <h2 id="day-h">Does the sun match the factory?</h2>
-  <p>A rooftop plant only saves money on the power the factory uses while it is generating. This is an average day, with the plant size set by you.</p>
-  <div class="controls row">
-    <label class="ctl"><span class="top"><span>Plant size</span><output id="sizeOut">307 kWp</output></span>
-      <input id="size" type="range" min="50" max="500" step="0.1" value="307.4"></label>
-    <label class="ctl"><span class="top"><span>Month</span></span>
-      <select id="month"></select></label>
-    <div class="ctl" role="group" aria-label="Day type"><span class="top"><span>Day</span></span>
-      <span class="seg"><button id="dWork" type="button" aria-pressed="true">Mon to Sat</button><button id="dSun" type="button" aria-pressed="false">Sunday</button></span></div>
-  </div>
-  <p class="key" aria-hidden="true"><span><i style="background:var(--solar)"></i>Solar output</span><span><i style="background:var(--load)"></i>Factory load</span></p>
-  <div class="chartbox"><svg id="dayChart" class="chart" role="img" aria-labelledby="dayTitle dayDesc"><title id="dayTitle">Solar output and factory load across an average day</title><desc id="dayDesc">Solar output rises from 6 am, peaks near midday and falls by 6 pm. Factory load is flat through the day on working days.</desc></svg></div>
-  <p class="readout" id="dayRead"></p>
-  <details class="table"><summary>Show the numbers for this chart</summary><div class="scroll" id="dayTable"></div></details>
-  <p class="small">Solar output: PVsyst 7.4.7, Kolkata weather, 2 slopes at 7°<i class="m p"></i>. Factory load: assumed two-shift manufacturer using 120,000 kWh a month<i class="m a"></i>.</p>
-</div>
-</section>
-
-<section id="grid" aria-labelledby="grid-h">
-<div class="wrap cols">
-  <div>
-    <h2 id="grid-h">Connecting to the grid</h2>
-    <p>The factory takes power at 11 kV through its own transformer. WBSEDCL's procedures let an HT consumer connect its plant at its low-voltage bus, as long as the net meter sits on the high-voltage side<i class="m v"></i>.</p>
-    <figure style="margin-top:1rem">
-      <a class="zoom" href="assets/sld.svg" data-full="assets/sld.svg" data-cap="Single-line diagram"><img src="assets/sld.svg" alt="Single-line diagram: east and west arrays into one inverter each, then a plant AC panel, the client's low-voltage bus, the transformer and the net meter on the 11 kV side" width="1210" height="729" loading="lazy"></a>
-      <figcaption>Single-line diagram. Breaker sizes (200 A each, 400 A main) are 125% of the continuous current and are assumed until a protection study confirms them<i class="m a"></i>.</figcaption>
-    </figure>
-    <dl class="facts">
-      <dt>Application fee, HV</dt><dd class="num">₹5,000<i class="m v"></i></dd>
-      <dt>Surplus power, HV feed-in rate</dt><dd class="num">₹3.89 per kWh, FY 2025-26<i class="m v"></i></dd>
-      <dt>Grid energy charge, 11 kV industry</dt><dd class="num">About ₹7.06 per kWh, plus ₹384 per kVA a month demand charge<i class="m v"></i></dd>
-      <dt>RESCO allowed?</dt><dd>Yes, through a service provider such as a RESCO<i class="m v"></i></dd>
-      <dt>Re-testing</dt><dd>Every 2 years above 170 kW<i class="m v"></i></dd>
-    </dl>
-  </div>
-  <aside>
-    <p><b>An open size question.</b> The utility document pairs 170 kW with 200 kVA, a power factor of about 0.85. If the capacity cap means kWp at that ratio, a 350 kVA contract demand allows 297.5 kW, and this plant (307.4 kWp) would be 9.9 kWp over. The fix would be 28 strings, 269 kWp. The documents do not say which reading is right, so the larger size is kept and the question is flagged.</p>
-  </aside>
-</div>
-</section>
-
-<section id="calculator" aria-labelledby="calc-h">
-<div class="wrap">
-  <h2 id="calc-h">RESCO calculator</h2>
-  <p>A RESCO pays for the plant and sells the power to the factory at a discount to the grid. Change the inputs: it runs the same arithmetic as the Python model in the repository.</p>
-  <div class="calc">
-    <div class="a-top"><div class="res-grid" id="calcTop" aria-live="polite"></div></div>
-    <div class="a-in panel">
-      <div class="head"><h3>Inputs</h3><button class="btn ghost" id="resetBtn" type="button">Reset to base case</button></div>
-      <div class="controls" id="calcControls"></div>
-    </div>
-    <div class="a-cards"><div class="res-grid rest" id="calcRest"></div></div>
-    <div class="a-chart">
-      <h3 style="margin-top:0">Cumulative cash of the RESCO</h3>
-      <div class="chartbox"><svg id="cashChart" class="chart" role="img" aria-labelledby="cashTitle"><title id="cashTitle">Cumulative cash of the RESCO over the contract, in lakh rupees</title></svg></div>
-    </div>
-  </div>
-  <p class="small" style="margin-top:1rem">The grid price is the WBSEDCL 11 kV industrial energy charge, Rate E(B), about ₹7.06 per kWh<i class="m v"></i>; the fuel-cost adjustment (MVCA) is extra and not included. Capex comes from two installer pages<i class="m p"></i>. Maintenance cost, escalation and the discount are assumed<i class="m a"></i>. The calculation ignores tax, loans and inverter replacement, and gives the client no credit for lower demand charges (₹384 per kVA per month).</p>
-  <h3>What to take from it</h3>
-  <p>At about ₹7 per kWh, a RESCO that discounts 20 to 30% earns roughly 17 to 19% a year on its money (no tax or loan), and the factory saves ₹5 to ₹8 lakh in year one with no capex. The biggest risks are the capex (installer pages, not a quote), the real yield (soiling and shading are not yet modelled) and how the capacity cap is read. If the factory is on the time-of-day scheme, the return is about <span id="todIrr">19.0%</span> instead of <span id="baseIrr">19.4%</span>.</p>
-</div>
-</section>
-
-<section aria-labelledby="comm-h">
-<div class="wrap cols">
-  <div>
-    <h2 id="comm-h">Before it is switched on</h2>
-    <p>The repository has a commissioning checklist with expected readings worked out from the design: a healthy 17-module string should read about 882 V open-circuit at 25 °C cell temperature, and 836 V at 45 °C<i class="m p"></i>. A one-page safety note covers the three real hazards on this roof: falls through skylights, strings that cannot be switched off in daylight, and DC fire.</p>
-    <p><a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco/blob/main/commissioning/commissioning_checklist.md">Commissioning checklist</a> · <a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco/blob/main/commissioning/safety_page.md">Safety page</a></p>
-  </div>
-  <aside><p>The test list comes from an installer's summary of IEC 62446-1. The standard's own text was not available to read, so the acceptance ranges are common practice, not clauses.</p></aside>
-</div>
-</section>
-
-<section id="assumed" aria-labelledby="assumed-h">
-<div class="wrap">
-  <h2 id="assumed-h">What is assumed, and what is not</h2>
-  <p>Every value in the repository is logged with its source in <a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco/blob/main/VERIFICATION.md">VERIFICATION.md</a>, and every design choice with its reason in <a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco/blob/main/ASSUMPTIONS.md">ASSUMPTIONS.md</a>.</p>
-  <table class="plain stack">
-    <thead><tr><th>Item</th><th>Status</th><th>Still to do</th></tr></thead>
+<section id="site" aria-labelledby="h1">
+  <h2 id="h1"><span class="n">1</span>Site and roof</h2>
+  <p>The roof is a metal-sheet shed with a 60 m ridge and two 20 m slopes facing east and west at 7° tilt (DWG-01). After setbacks and two skylight strips per slope, 1,983 m² of the 2,400 m² roof is usable (83 %). All roof data are assumed; no site survey has been carried out.</p>
+  <table class="data">
+    <caption>Table 1.1 Roof data</caption>
+    <thead><tr><th>Item</th><th>Value</th><th class="s">Src</th></tr></thead>
     <tbody>
-    <tr><td>Roof geometry, client, load profile</td><td data-l="Status"><i class="m a"></i>Assumed</td><td data-l="Still to do">Replace with a surveyed roof and a real bill</td></tr>
-    <tr><td>Module and inverter specifications</td><td data-l="Status"><i class="m v"></i>Datasheets</td><td data-l="Still to do">Check ALMM listing of this exact model; inverter variant in PVsyst differs slightly</td></tr>
-    <tr><td>WBSEDCL rules and tariffs</td><td data-l="Status"><i class="m v"></i>Utility document, FY 2025-26</td><td data-l="Still to do">Read the regulation's gazette text and the FY 2026-27 order; add the fuel-cost adjustment (MVCA)</td></tr>
-    <tr><td>Capex, RESCO terms</td><td data-l="Status"><i class="m p"></i>Installer pages</td><td data-l="Still to do">Get a quotation</td></tr>
-    <tr><td>Maintenance cost, tariff escalation, base discount</td><td data-l="Status"><i class="m a"></i>Assumed</td><td data-l="Still to do">Agree with the client</td></tr>
-    <tr><td>Soiling and shading losses</td><td data-l="Status"><i class="m a"></i>Not modelled (zero)</td><td data-l="Still to do">Add to PVsyst and re-run on a valid licence</td></tr>
-    <tr><td>Wind loads, fire setbacks</td><td data-l="Status"><i class="m a"></i>Screening only</td><td data-l="Still to do">Structural engineer and fire authority</td></tr>
+      <tr><td>Roof type</td><td class="v">Metal sheet on steel purlins, gable</td><td class="s"><span class="src">A</span></td></tr>
+      <tr><td>Dimensions</td><td class="v">60 m ridge × 2 slopes of 20 m = 2,400 m²</td><td class="s"><span class="src">A</span></td></tr>
+      <tr><td>Orientation</td><td class="v">Ridge N–S; slopes E (90°) and W (270°)</td><td class="s"><span class="src">A</span></td></tr>
+      <tr><td>Tilt</td><td class="v">7°</td><td class="s"><span class="src">A</span></td></tr>
+      <tr><td>Setbacks</td><td class="v">1.0 m at eaves and gable ends, 0.5 m at ridge</td><td class="s"><span class="src">A</span></td></tr>
+      <tr><td>Skylights</td><td class="v">2 strips per slope, 1.2 m wide, 0.5 m clearance each side</td><td class="s"><span class="src">A</span></td></tr>
+      <tr><td>Usable area</td><td class="v">1,983.2 m² (83 %)</td><td class="s"><span class="src">A</span></td></tr>
     </tbody>
   </table>
-</div>
+</section>
+
+<section id="plant" aria-labelledby="h2">
+  <h2 id="h2"><span class="n">2</span>Plant design</h2>
+  <p>Plant size is the smallest of three limits, rounded down to whole strings and split equally between the two slopes.</p>
+  <table class="data">
+    <caption>Table 2.1 Sizing limits</caption>
+    <thead><tr><th>Limit</th><th class="r">Value</th><th class="s">Src</th></tr></thead>
+    <tbody>
+      <tr><td>Roof area</td><td class="v r">407 kWp</td><td class="s"><span class="src">A</span></td></tr>
+      <tr><td>Grid rule (350 kVA × 0.95)</td><td class="v r">332 kW</td><td class="s"><span class="src">P</span></td></tr>
+      <tr><td>Daytime load</td><td class="v r">321 kWp</td><td class="s"><span class="src">A</span></td></tr>
+      <tr><td><b>Selected</b></td><td class="v r"><b>307.4 kWp</b></td><td class="s"></td></tr>
+    </tbody>
+  </table>
+  <table class="data" style="margin-top:1rem">
+    <caption>Table 2.2 Equipment and string design</caption>
+    <thead><tr><th>Item</th><th>Value</th><th class="s">Src</th></tr></thead>
+    <tbody>
+      <tr><td>Modules</td><td class="v">544 × Waaree BiN-08-565, 565 Wp = 307.4 kWp</td><td class="s"><span class="src">V</span></td></tr>
+      <tr><td>Modules per string</td><td class="v">17; 16 strings per slope</td><td class="s"><span class="src">V</span></td></tr>
+      <tr><td>String Voc at 3.4 °C</td><td class="v">931.8 V (limit 1,000 V)</td><td class="s"><span class="src">V</span></td></tr>
+      <tr><td>Inverters</td><td class="v">2 × Sungrow SG110CX, 110 kVA; DC/AC 1.40</td><td class="s"><span class="src">P</span></td></tr>
+      <tr><td>Strings per MPPT</td><td class="v">2, same slope; 25.9 A against a 26 A limit</td><td class="s"><span class="src">V</span></td></tr>
+      <tr><td>Wind speed, Kolkata</td><td class="v">50 m/s</td><td class="s"><span class="src">P</span></td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>Note 1, string length.</b> The open-circuit voltage of a string rises as it gets cold. At the assumed record low of 3.4 °C, 18 modules would give 986.7 V, only 1.3 % under the 1,000 V connector limit, so 17 are used. The hot-cell maximum-power voltage with 17 modules is about 629 V, inside the 200–1,000 V tracking window.</p>
+  <p class="note"><b>Note 2, wind.</b> Flush-mounted modules weigh about 0.12 kN/m². The governing checks are clamp pull-out and purlin strength, which need the actual roof and a structural engineer.</p>
+</section>
+
+<section id="energy" aria-labelledby="h3">
+  <h2 id="h3"><span class="n">3</span>Energy yield</h2>
+  <h3><span class="n">3.1</span>Annual yield</h3>
+  <p>PVsyst 7.4.7 gives 409,153 kWh a year (1,331 kWh/kWp, performance ratio 84.9 %). East–west orientation costs about 6 % against the best single tilt and spreads output across the day, which suits a two-shift factory.</p>
+  <div class="chartbox"><svg id="monthChart" class="chart" role="img" aria-labelledby="monTitle"><title id="monTitle">Energy delivered to the grid by month, in megawatt-hours</title></svg></div>
+  <p class="figcap"><b>Fig. 3.1</b>Monthly energy to the grid, MWh (PVsyst).</p>
+  <table class="data" style="max-width:34rem">
+    <caption>Table 3.1 Loss chain</caption>
+    <thead><tr><th>Step</th><th class="r">Loss</th><th class="s">Src</th></tr></thead>
+    <tbody>
+      <tr><td>Incidence angle on glass</td><td class="v r">2.76 %</td><td class="s"><span class="src">P</span></td></tr>
+      <tr><td>Cell temperature</td><td class="v r">7.52 %</td><td class="s"><span class="src">P</span></td></tr>
+      <tr><td>Module mismatch</td><td class="v r">2.00 %</td><td class="s"><span class="src">P</span></td></tr>
+      <tr><td>DC cable resistance</td><td class="v r">0.88 %</td><td class="s"><span class="src">P</span></td></tr>
+      <tr><td>Inverter efficiency</td><td class="v r">2.13 %</td><td class="s"><span class="src">P</span></td></tr>
+      <tr><td>Inverter clipping, DC/AC 1.40</td><td class="v r">0.32 %</td><td class="s"><span class="src">P</span></td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>Note 3, limits of the simulation.</b> Soiling, shading and downtime are set to zero, the weather is synthetic data for Kolkata (about 30 km from Hooghly), and the bifacial module is treated as single-sided. Real output will be lower. The PVsyst licence showed 0 days remaining when the run was made; the run completed normally but should be repeated on a valid licence before the results are treated as final.</p>
+
+  <h3><span class="n">3.2</span>Solar output and factory load, average day</h3>
+  <p>Average solar output and assumed factory load for a chosen plant size, month and day type.</p>
+  <div class="dayctl">
+    <div class="fld"><span class="lab"><label for="size">Plant size</label><output id="sizeOut">307.4 kWp</output></span><input id="size" type="range" min="50" max="500" step="0.1" value="307.4"></div>
+    <div class="fld"><span class="lab"><label for="month">Month</label></span><select id="month"></select></div>
+    <div class="fld" role="group" aria-label="Day type"><span class="lab">Day</span><span class="seg"><button id="dWork" type="button" aria-pressed="true">Mon to Sat</button><button id="dSun" type="button" aria-pressed="false">Sunday</button></span></div>
+  </div>
+  <p class="key" aria-hidden="true"><span><i style="background:var(--solar)"></i>Solar output</span><span><i style="background:var(--blue)"></i>Factory load</span></p>
+  <div class="chartbox"><svg id="dayChart" class="chart" role="img" aria-labelledby="dayTitle dayDesc"><title id="dayTitle">Solar output and factory load across an average day</title><desc id="dayDesc">Solar output rises from 6 am, peaks near midday and falls by 6 pm. Factory load is flat through the day on working days.</desc></svg></div>
+  <p class="figcap"><b>Fig. 3.2</b>Solar output (PVsyst, Kolkata weather, 2 slopes at 7°) and factory load (assumed two-shift manufacturer, 120,000 kWh a month). Source: P and A.</p>
+  <p class="readout" id="dayRead"></p>
+  <details class="tbl"><summary>Table of values for Fig. 3.2</summary><div class="scroll" id="dayTable"></div></details>
+</section>
+
+<section id="grid" aria-labelledby="h4">
+  <h2 id="h4"><span class="n">4</span>Grid connection</h2>
+  <p>The factory takes power at 11 kV through its own transformer. WBSEDCL procedures allow an HT consumer to connect its plant at its low-voltage bus, provided the net meter is on the high-voltage side of the transformer.</p>
+  <figure class="dwg">
+    <a class="zoom" href="assets/sld.svg" data-full="assets/sld.svg" data-cap="DWG-02 Single-line diagram"><img src="assets/sld.svg" alt="Single-line diagram: east and west arrays into one inverter each, then a plant AC panel, the client's low-voltage bus, the transformer and the net meter on the 11 kV side" width="1210" height="729"></a>
+    <figcaption><span><b>DWG-02</b>Single-line diagram</span><span class="r">Breakers 200 A each, 400 A main (assumed) · Rev B · click to enlarge</span></figcaption>
+  </figure>
+  <table class="data">
+    <caption>Table 4.1 Connection and tariff data</caption>
+    <thead><tr><th>Item</th><th>Value</th><th class="s">Src</th></tr></thead>
+    <tbody>
+      <tr><td>Application fee, HV</td><td class="v">₹5,000</td><td class="s"><span class="src">V</span></td></tr>
+      <tr><td>Feed-in rate, HV, FY 2025-26</td><td class="v">₹3.89 per kWh</td><td class="s"><span class="src">V</span></td></tr>
+      <tr><td>Grid energy charge, 11 kV industry, Rate E(B)</td><td class="v">About ₹7.06 per kWh (707 / 706 / 705 P/kWh by season)</td><td class="s"><span class="src">V</span></td></tr>
+      <tr><td>Demand charge, Rate E(B)</td><td class="v">₹384 per kVA per month</td><td class="s"><span class="src">V</span></td></tr>
+      <tr><td>RESCO ownership</td><td class="v">Allowed, through a service provider</td><td class="s"><span class="src">V</span></td></tr>
+      <tr><td>Periodic re-testing</td><td class="v">Every 2 years above 170 kW</td><td class="s"><span class="src">V</span></td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>Note 4, capacity cap.</b> The utility document pairs 170 kW with 200 kVA, a power factor of about 0.85. If the cap means kWp at that ratio, a 350 kVA contract demand allows 297.5 kW, and this plant (307.4 kWp) would exceed it by 9.9 kWp; the alternative is 28 strings, 269 kWp. The documents do not say which reading applies. The larger size is retained and the question is open (Section 7).</p>
+</section>
+
+<section id="resco" aria-labelledby="h5">
+  <h2 id="h5"><span class="n">5</span>RESCO financial model</h2>
+  <p>A RESCO owns the plant and sells the solar energy used on site to the factory at a discount to the grid energy charge. The calculator below runs the same arithmetic as <span class="mono">resco/model.py</span> in the repository.</p>
+  <div class="calc">
+    <div class="a-mini"><table class="mini" aria-live="polite"><tr><td><small>RESCO IRR</small><span id="miniIrr">19.4 %</span></td><td><small>Payback</small><span id="miniPay">5.3 yr</span></td></tr></table></div>
+    <div class="a-in form">
+      <div class="hd"><span>Inputs</span><button class="linkbtn" id="resetBtn" type="button">Reset to base case</button></div>
+      <div id="calcControls"></div>
+    </div>
+    <div class="a-res">
+      <table class="data" id="calcRes" aria-live="polite" style="margin-top:0">
+        <caption>Results</caption>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="a-chart">
+      <div class="chartbox"><svg id="cashChart" class="chart" role="img" aria-labelledby="cashTitle"><title id="cashTitle">Cumulative cash of the RESCO over the contract, in lakh rupees</title></svg></div>
+      <p class="figcap"><b>Fig. 5.1</b>Cumulative cash of the RESCO, ₹ lakh, by contract year. Marker: simple payback.</p>
+    </div>
+  </div>
+  <h3><span class="n">5.1</span>Basis</h3>
+  <p class="note">Grid price: WBSEDCL 11 kV industry Rate E(B), about ₹7.06 per kWh (V); the fuel-cost adjustment (MVCA) is charged on top and is not included. Capex: two installer pages (P). Maintenance, escalation and discount: assumed (A). Tax, loans and inverter replacement are not modelled, and the client is given no credit for lower demand charges (₹384 per kVA per month).</p>
+  <h3><span class="n">5.2</span>Summary of results</h3>
+  <p>At about ₹7 per kWh, a RESCO that discounts 20 to 30 % earns roughly 17 to 19 % a year on its capital (no tax or loan), and the factory saves ₹5 to ₹8 lakh in year 1 with no capital outlay. The largest risks are capex (installer pages, not a quotation), real yield (soiling and shading not yet modelled) and the reading of the capacity cap. If the factory is on the time-of-day scheme, the return is about <span id="todIrr">19.0 %</span> instead of <span id="baseIrr">19.4 %</span>.</p>
+</section>
+
+<section id="commissioning" aria-labelledby="h6">
+  <h2 id="h6"><span class="n">6</span>Commissioning and safety</h2>
+  <p>The repository holds a commissioning checklist with expected readings worked from the design: a healthy 17-module string should read about 882 V open-circuit at 25 °C cell temperature and 836 V at 45 °C (P). A one-page safety note covers falls through skylights, strings that cannot be switched off in daylight, and DC fire.</p>
+  <p class="note">The test list follows an installer's summary of IEC 62446-1. The standard itself was not available to read, so acceptance ranges are common practice, not clauses.</p>
+  <p><a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco/blob/main/commissioning/commissioning_checklist.md">Commissioning checklist</a> · <a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco/blob/main/commissioning/safety_page.md">Safety page</a></p>
+</section>
+
+<section id="assumptions" aria-labelledby="h7">
+  <h2 id="h7"><span class="n">7</span>Assumptions and open items</h2>
+  <p>Every value is logged with its source in <a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco/blob/main/VERIFICATION.md">VERIFICATION.md</a> and every design choice with its reason in <a href="https://github.com/sagnikvolt/rooftop-ci-solar-resco/blob/main/ASSUMPTIONS.md">ASSUMPTIONS.md</a>.</p>
+  <p class="keyline" style="margin-top:.4rem"><span class="src">V</span> verified against the cited document · <span class="src">P</span> partly verified (secondary source, single source, or a variant of the part) · <span class="src">A</span> assumed, or computed from assumed inputs; the reason is logged.</p>
+  <table class="data stack">
+    <caption>Table 7.1 Status of inputs</caption>
+    <thead><tr><th>Item</th><th class="s">Src</th><th>Open action</th></tr></thead>
+    <tbody>
+      <tr><td>Roof geometry, client, load profile</td><td class="s" data-l="Src"><span class="src">A</span></td><td data-l="Open action">Replace with a surveyed roof and a real bill</td></tr>
+      <tr><td>Module and inverter specifications</td><td class="s" data-l="Src"><span class="src">V</span> <span class="src">P</span></td><td data-l="Open action">Check the ALMM listing of this exact model; the PVsyst inverter variant differs slightly</td></tr>
+      <tr><td>WBSEDCL rules and tariffs, FY 2025-26</td><td class="s" data-l="Src"><span class="src">V</span></td><td data-l="Open action">Read the regulation gazette text and the FY 2026-27 order; add the fuel-cost adjustment (MVCA)</td></tr>
+      <tr><td>Capex, RESCO terms</td><td class="s" data-l="Src"><span class="src">P</span></td><td data-l="Open action">Obtain a quotation</td></tr>
+      <tr><td>Maintenance, escalation, base discount</td><td class="s" data-l="Src"><span class="src">A</span></td><td data-l="Open action">Agree with the client</td></tr>
+      <tr><td>Soiling and shading losses</td><td class="s" data-l="Src"><span class="src">A</span></td><td data-l="Open action">Not modelled (zero); add to PVsyst and re-run on a valid licence</td></tr>
+      <tr><td>Wind loads, fire setbacks</td><td class="s" data-l="Src"><span class="src">A</span></td><td data-l="Open action">Structural engineer and fire authority</td></tr>
+      <tr><td>Capacity cap (332 kW or about 297 kW)</td><td class="s" data-l="Src"><span class="src">P</span></td><td data-l="Open action">Confirm the unit and power factor with WBSEDCL</td></tr>
+    </tbody>
+  </table>
+  <div class="aboutbox">
+    <h3>About this study</h3>
+    <p>The roof and the client are assumed and anonymised; this is a design study, not a real client project. Design decisions, inputs and checks are the author's; AI tools assisted with scripting and documentation. No AI-generated images are used; the drawings are produced by scripts in the repository.</p>
+  </div>
 </section>
 
 <footer>
-<div class="wrap">
-  <p class="who">Sagnik Kumar Nath (Roni)</p>
+  <p class="who">Sagnik Kumar Nath</p>
   <p style="margin:.1rem 0">B.Tech Electrical Engineering, IEM Kolkata (2027)</p>
   <ul>
     <li><a href="https://www.linkedin.com/in/sagnikkumarnath">LinkedIn</a></li>
     <li><a href="https://github.com/sagnikvolt">GitHub</a></li>
     <li><a href="https://github.com/sagnikvolt/solar-pv-plant-5mwp-wb">Project 1: 5 MWp ground-mount design</a></li>
     <li><a href="https://sunsense.sagniknath.in">SunSense</a></li>
+    <li><a href="assets/rooftop_ci_resco_report.pdf" download>PDF report (5 pp)</a></li>
+    <li><button class="linkbtn" id="themeBtn" type="button" style="font-size:.9rem">Dark mode</button></li>
   </ul>
-  <a class="btn" href="assets/rooftop_ci_resco_report.pdf" download>Download PDF report</a>
-  <p class="fine" style="margin-top:1rem">The roof and client here are invented for the study. No AI-generated images are used on this page; the drawings are produced by the scripts in the repository.</p>
-</div>
+  <p class="fine">RCI-307-DS-01 Rev B, 05-11-2026. Design decisions, inputs and checks are mine; AI tools assisted with scripting and documentation. The roof and client are assumed.</p>
 </footer>
+</main>
+</div>
 
 <dialog id="lb" aria-label="Enlarged drawing">
-  <div class="bar"><span id="lbCap"></span><span><a id="lbOpen" href="#" target="_blank" rel="noopener">Open in new tab</a> &nbsp; <button class="btn" id="lbClose" type="button">Close</button></span></div>
+  <div class="bar2"><span id="lbCap"></span><span><a id="lbOpen" href="#" target="_blank" rel="noopener">Open in new tab</a> &nbsp; <button class="btn plain" id="lbClose" type="button">Close</button></span></div>
   <div class="pan"><img id="lbImg" alt=""></div>
 </dialog>
 
@@ -419,37 +461,39 @@ footer .fine{font-size:.85rem;max-width:70ch}
   function fmt(n, d) { return Number(n).toLocaleString("en-IN", {maximumFractionDigits: d || 0, minimumFractionDigits: d || 0}); }
   function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
   function txt(parent, x, y, s, attrs) { var a = {x: x, y: y}; for (var k in (attrs || {})) a[k] = attrs[k]; var t = el("text", a, parent); t.textContent = s; return t; }
+  function $(id) { return document.getElementById(id); }
   /* measure the chart box so the drawing is made 1:1 and the text keeps its real size on any screen */
-  function begin(svg, H, minW) {
-    var W = Math.max(minW || 280, Math.round(svg.parentNode.clientWidth || 340));
+  function begin(svg, H) {
+    var W = Math.max(280, Math.round(svg.parentNode.clientWidth || 340));
     var keep = svg.querySelectorAll("title,desc"); svg.innerHTML = ""; keep.forEach(function (n) { svg.appendChild(n); });
     svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     return W;
   }
   function niceStep(range, maxLines) { var s = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500]; for (var i = 0; i < s.length; i++) if (range / s[i] <= maxLines) return s[i]; return 1000; }
 
-  /* ---------- headline numbers, from the same data the calculator uses ---------- */
-  (function kpis() {
+  /* ---------- key design data and text figures, from the same data the calculator uses ---------- */
+  (function key() {
     var b = D.base_result, mwh = D.monthly_kwh.reduce(function (a, c) { return a + c; }, 0) / 1000;
-    function set(id, html) { var n = document.getElementById(id); if (n) n.innerHTML = html; }
-    set("k_kwp", fmt(D.design_kwp) + " kWp");
-    set("k_mwh", fmt(mwh) + " <small>MWh/yr</small>");
-    set("k_tar", "₹" + fmt(b.resco_tariff_year1, 2) + " <small>/kWh</small>");
-    set("k_sav", "₹" + fmt(b.client_saving_year1_rs / 1e5, 1) + " <small>lakh</small>");
-    set("k_irr", fmt(b.project_irr * 100, 1) + "% · " + fmt(b.payback_years, 1) + " yr");
-    set("todIrr", fmt(D.tod_case.project_irr * 100, 1) + "%");
-    set("baseIrr", fmt(b.project_irr * 100, 1) + "%");
+    var e = M.run(D.inputs, D.curve).energy;
+    $("kd_cap").textContent = fmt(D.design_kwp, 1) + " kWp / 220 kVA";
+    $("kd_mwh").textContent = fmt(mwh, 1) + " MWh";
+    $("kd_self").textContent = fmt(e.self_kwh / e.pv_kwh * 100) + " %";
+    $("kd_tar").textContent = "₹" + fmt(b.resco_tariff_year1, 2) + " /kWh";
+    $("kd_irr").textContent = fmt(b.project_irr * 100, 1) + " % / " + fmt(b.payback_years, 1) + " yr";
+    $("kd_sav").textContent = "₹" + fmt(b.client_saving_year1_rs / 1e5, 2) + " lakh / ₹" + fmt(b.client_saving_total_rs / 1e7, 2) + " cr";
+    $("todIrr").textContent = fmt(D.tod_case.project_irr * 100, 1) + " %";
+    $("baseIrr").textContent = fmt(b.project_irr * 100, 1) + " %";
   })();
 
-  /* ---------- a day ---------- */
+  /* ---------- 3.2 a day ---------- */
   var state = {size: D.design_kwp, month: 4, sunday: false};
-  var monthSel = document.getElementById("month");
+  var monthSel = $("month");
   MONTHS.forEach(function (m, i) { var o = document.createElement("option"); o.value = i; o.textContent = m; monthSel.appendChild(o); });
   monthSel.value = state.month;
   function kwpText(v) { return fmt(v, Math.abs(v - Math.round(v)) < 0.05 ? 0 : 1) + " kWp"; }
 
   function drawDay() {
-    var svg = document.getElementById("dayChart");
+    var svg = $("dayChart");
     var H = 300, W = begin(svg, H), narrow = W < 520;
     var pv = D.pv_kw_by_month_hour[state.month].map(function (x) { return x * state.size / D.design_kwp; });
     var ld = (state.sunday ? D.load_sun_kw : D.load_work_kw)[state.month];
@@ -468,30 +512,30 @@ footer .fine{font-size:.85rem;max-width:70ch}
     var pts = "M" + X(0) + "," + Y(0);
     for (var h = 0; h < 24; h++) pts += " L" + X(h + 0.5) + "," + Y(pv[h]);
     pts += " L" + X(24) + "," + Y(0) + " Z";
-    el("path", {d: pts, fill: css("--solar-fill"), stroke: css("--solar"), "stroke-width": 2.5, "stroke-linejoin": "round"}, svg);
+    el("path", {d: pts, fill: css("--solar-fill"), stroke: css("--solar"), "stroke-width": 2, "stroke-linejoin": "round"}, svg);
     var lp = "";
     for (h = 0; h < 24; h++) lp += (h ? " L" : "M") + X(h) + "," + Y(ld[h]) + " L" + X(h + 1) + "," + Y(ld[h]);
-    el("path", {d: lp, fill: "none", stroke: css("--load"), "stroke-width": 3, "stroke-linejoin": "round"}, svg);
+    el("path", {d: lp, fill: "none", stroke: css("--blue"), "stroke-width": 2, "stroke-linejoin": "round"}, svg);
     var gen = 0, used = 0;
     for (h = 0; h < 24; h++) { gen += pv[h]; used += Math.min(pv[h], ld[h]); }
     var days = state.sunday ? "Sunday" : "a Monday to Saturday";
     var pct = gen ? used / gen * 100 : 0;
-    document.getElementById("dayRead").innerHTML = "On " + days + " in " + MONTHS[state.month] + " the plant makes <b>" + fmt(gen) + " kWh</b> and the factory uses <b>" + fmt(used) + " kWh</b> of it (<b>" + fmt(pct) + "%</b>). " +
-      (pct < 99.5 ? "The rest, <b>" + fmt(gen - used) + " kWh</b>, goes to the grid." : "Everything the plant makes is used on site.");
+    $("dayRead").innerHTML = "On " + days + " in " + MONTHS[state.month] + " the plant generates <b>" + fmt(gen) + " kWh</b>; the factory uses <b>" + fmt(used) + " kWh</b> of it (<b>" + fmt(pct) + " %</b>)." +
+      (pct < 99.5 ? " <b>" + fmt(gen - used) + " kWh</b> is exported." : " All generation is used on site.");
     var tb = "<table><tr><th>Hour</th><th>Solar kW</th><th>Load kW</th></tr>";
     for (h = 5; h < 19; h++) tb += "<tr><td>" + (h < 10 ? "0" : "") + h + ":00</td><td>" + fmt(pv[h], 0) + "</td><td>" + fmt(ld[h], 0) + "</td></tr>";
-    document.getElementById("dayTable").innerHTML = tb + "</table>";
+    $("dayTable").innerHTML = tb + "</table>";
   }
-  document.getElementById("size").addEventListener("input", function (e) { state.size = +e.target.value; document.getElementById("sizeOut").textContent = kwpText(state.size); drawDay(); });
+  $("size").addEventListener("input", function (e) { state.size = +e.target.value; $("sizeOut").textContent = kwpText(state.size); drawDay(); });
   monthSel.addEventListener("change", function () { state.month = +monthSel.value; drawDay(); });
-  function setDay(sun) { state.sunday = sun; document.getElementById("dWork").setAttribute("aria-pressed", !sun); document.getElementById("dSun").setAttribute("aria-pressed", sun); drawDay(); }
-  document.getElementById("dWork").onclick = function () { setDay(false); };
-  document.getElementById("dSun").onclick = function () { setDay(true); };
-  document.getElementById("sizeOut").textContent = kwpText(state.size);
+  function setDay(sun) { state.sunday = sun; $("dWork").setAttribute("aria-pressed", !sun); $("dSun").setAttribute("aria-pressed", sun); drawDay(); }
+  $("dWork").onclick = function () { setDay(false); };
+  $("dSun").onclick = function () { setDay(true); };
+  $("sizeOut").textContent = kwpText(state.size);
 
-  /* ---------- monthly energy: columns on wide screens, rows on a phone ---------- */
+  /* ---------- 3.1 monthly energy: columns on wide screens, rows on a phone ---------- */
   function drawMonths() {
-    var svg = document.getElementById("monthChart");
+    var svg = $("monthChart");
     var vals = D.monthly_kwh.map(function (x) { return x / 1000; });
     var vmax = Math.max.apply(null, vals), W0 = Math.round(svg.parentNode.clientWidth || 340);
     if (W0 < 560) {
@@ -501,7 +545,7 @@ footer .fine{font-size:.85rem;max-width:70ch}
       vals.forEach(function (v, i) {
         var y = T + i * rowH;
         txt(svg, L - 8, y + 18, MONTHS[i].slice(0, 3), {"text-anchor": "end"});
-        el("rect", {x: L, y: y + 4, width: Math.max(2, v * scale), height: rowH - 9, fill: css("--solar"), rx: 2}, svg);
+        el("rect", {x: L, y: y + 4, width: Math.max(2, v * scale), height: rowH - 9, fill: css("--bar"), rx: 1}, svg);
         txt(svg, L + v * scale + 6, y + 18, fmt(v, 1));
       });
       return;
@@ -516,59 +560,59 @@ footer .fine{font-size:.85rem;max-width:70ch}
     var bw = (W2 - L2 - 8) / n;
     vals.forEach(function (v, i) {
       var h = (H2 - T2 - B2) * v / ymax;
-      el("rect", {x: L2 + i * bw + 5, y: T2 + (H2 - T2 - B2) - h, width: bw - 10, height: h, fill: css("--solar"), rx: 2}, svg);
+      el("rect", {x: L2 + i * bw + 5, y: T2 + (H2 - T2 - B2) - h, width: bw - 10, height: h, fill: css("--bar"), rx: 1}, svg);
       txt(svg, L2 + i * bw + bw / 2, T2 + (H2 - T2 - B2) - h - 5, fmt(v, 1), {"text-anchor": "middle"});
       txt(svg, L2 + i * bw + bw / 2, H2 - 9, MONTHS[i].slice(0, 3), {"text-anchor": "middle"});
     });
     txt(svg, 4, 14, "MWh");
   }
 
-  /* ---------- calculator ---------- */
+  /* ---------- 5 calculator ---------- */
   var P = JSON.parse(JSON.stringify(D.inputs));
   var CTL = [
     {k: "plant_kwp", label: "Plant size", min: 50, max: 500, step: 0.1, f: kwpText},
-    {k: "resco_discount", label: "Discount to the grid", min: 0, max: 0.5, step: 0.01, f: function (v) { return fmt(v * 100) + "%"; }},
-    {k: "capex_per_wp", label: "Capex", min: 30, max: 55, step: 1, f: function (v) { return "₹" + fmt(v) + " per Wp"; }},
-    {k: "grid_energy_tariff", label: "Grid energy charge", min: 3, max: 12, step: 0.01, f: function (v) { return "₹" + fmt(v, 2) + " per kWh"; }},
-    {k: "om_pct_of_capex", label: "Maintenance a year", min: 0, max: 3, step: 0.1, f: function (v) { return fmt(v, 1) + "% of capex"; }},
-    {k: "escalation", label: "Tariff rise a year", min: 0, max: 0.06, step: 0.005, f: function (v) { return fmt(v * 100, 1) + "%"; }},
+    {k: "resco_discount", label: "Discount to grid", min: 0, max: 0.5, step: 0.01, f: function (v) { return fmt(v * 100) + " %"; }},
+    {k: "capex_per_wp", label: "Capex", min: 30, max: 55, step: 1, f: function (v) { return "₹" + fmt(v) + " /Wp"; }},
+    {k: "grid_energy_tariff", label: "Grid energy", min: 3, max: 12, step: 0.01, f: function (v) { return "₹" + fmt(v, 2) + " /kWh"; }},
+    {k: "om_pct_of_capex", label: "Maintenance (of capex)", min: 0, max: 3, step: 0.1, f: function (v) { return fmt(v, 1) + " % /yr"; }},
+    {k: "escalation", label: "Tariff rise", min: 0, max: 0.06, step: 0.005, f: function (v) { return fmt(v * 100, 1) + " % /yr"; }},
     {k: "years", label: "Contract", min: 10, max: 25, step: 1, f: function (v) { return fmt(v) + " years"; }}
   ];
-  var box = document.getElementById("calcControls");
-  CTL.forEach(function (c) {
-    var lab = document.createElement("label"); lab.className = "ctl";
-    var top = document.createElement("span"); top.className = "top";
-    var nm = document.createElement("span"); nm.textContent = c.label;
-    var out = document.createElement("output"); out.id = "o_" + c.k;
-    top.appendChild(nm); top.appendChild(out); lab.appendChild(top);
-    var inp = document.createElement("input"); inp.type = "range"; inp.min = c.min; inp.max = c.max; inp.step = c.step; inp.value = P[c.k];
-    inp.setAttribute("aria-label", c.label);
+  var box = $("calcControls");
+  CTL.forEach(function (c, i) {
+    var row = document.createElement("div"); row.className = "frow";
+    var lab = document.createElement("label"); lab.textContent = c.label; lab.setAttribute("for", "in_" + c.k);
+    var out = document.createElement("output"); out.id = "o_" + c.k; out.setAttribute("for", "in_" + c.k);
+    var inp = document.createElement("input"); inp.type = "range"; inp.id = "in_" + c.k; inp.min = c.min; inp.max = c.max; inp.step = c.step; inp.value = P[c.k];
     inp.addEventListener("input", function () { P[c.k] = +inp.value; drawCalc(); });
-    lab.appendChild(inp); box.appendChild(lab); c.out = out; c.inp = inp;
+    row.appendChild(lab); row.appendChild(out); row.appendChild(inp); box.appendChild(row); c.out = out; c.inp = inp;
   });
-  document.getElementById("resetBtn").onclick = function () { P = JSON.parse(JSON.stringify(D.inputs)); CTL.forEach(function (c) { c.inp.value = P[c.k]; }); drawCalc(); };
+  $("resetBtn").onclick = function () { P = JSON.parse(JSON.stringify(D.inputs)); CTL.forEach(function (c) { c.inp.value = P[c.k]; }); drawCalc(); };
 
-  function res(big, what, cls, warn) { return '<div class="res ' + (cls || "") + '"><div class="big' + (warn ? " warn" : "") + '">' + big + '</div><div class="what">' + what + "</div></div>"; }
+  function row(name, val, cls) { return "<tr><td>" + name + '</td><td class="v r' + (cls ? " " + cls : "") + '">' + val + "</td></tr>"; }
   var lastR = null;
   function drawCalc() {
     CTL.forEach(function (c) { c.out.textContent = c.f(P[c.k]); });
     var r = lastR = M.run(P, D.curve);
-    var irr = r.irr === null ? "none" : fmt(r.irr * 100, 1) + "%";
-    var pay = r.payback === null ? ">" + P.years + " yr" : fmt(r.payback, 1) + " yr";
+    var irrLow = r.irr !== null && r.irr < 0.08, payLow = r.payback === null || r.payback > 12;
+    var irr = r.irr === null ? "none" : fmt(r.irr * 100, 1) + " %" + (irrLow ? " (low)" : "");
+    var pay = r.payback === null ? "> " + P.years + " yr" : fmt(r.payback, 1) + " yr" + (payLow ? " (long)" : "");
     var selfPct = r.energy.self_kwh / r.energy.pv_kwh * 100;
-    document.getElementById("calcTop").innerHTML =
-      res(irr, "RESCO return a year", "strong", r.irr !== null && r.irr < 0.08) +
-      res(pay, "RESCO payback", "strong", r.payback === null || r.payback > 12);
-    document.getElementById("calcRest").innerHTML =
-      res("₹" + fmt(r.rescoTariff0, 2), "RESCO tariff per kWh, year 1") +
-      res("₹" + fmt(r.saving1 / 100000, 1) + " lakh", "Factory saves in year 1") +
-      res("₹" + fmt(r.savingTotal / 10000000, 2) + " cr", "Factory saves over " + P.years + " years") +
-      res(fmt(selfPct) + "%", "Of the solar energy is used on site");
+    $("calcRes").querySelector("tbody").innerHTML =
+      row("RESCO IRR (no tax, no loan)", irr, irrLow ? "low" : "") +
+      row("Simple payback", pay, payLow ? "low" : "") +
+      row("RESCO tariff, year 1", "₹" + fmt(r.rescoTariff0, 2) + " /kWh") +
+      row("Capex", "₹" + fmt(r.capex / 1e7, 2) + " cr") +
+      row("Self-consumption", fmt(selfPct) + " %") +
+      row("Client saving, year 1", "₹" + fmt(r.saving1 / 1e5, 2) + " lakh") +
+      row("Client saving, " + P.years + " years", "₹" + fmt(r.savingTotal / 1e7, 2) + " cr");
+    $("miniIrr").textContent = r.irr === null ? "none" : fmt(r.irr * 100, 1) + " %";
+    $("miniPay").textContent = r.payback === null ? "> " + P.years + " yr" : fmt(r.payback, 1) + " yr";
     drawCash(r);
   }
 
   function drawCash(r) {
-    var svg = document.getElementById("cashChart");
+    var svg = $("cashChart");
     var H = 260, W = begin(svg, H), narrow = W < 520;
     var L = narrow ? 46 : 56, R = 14, T = 24, B = 34;
     var vals = r.cumulative.map(function (x) { return x / 100000; });
@@ -579,75 +623,62 @@ footer .fine{font-size:.85rem;max-width:70ch}
     function X(i) { return L + (W - L - R) * i / (vals.length - 1); }
     function Y(v) { return T + (H - T - B) * (1 - (v - ymin) / (ymax - ymin)); }
     for (var g = ymin; g <= ymax; g += step) {
-      el("line", {x1: L, x2: W - R, y1: Y(g), y2: Y(g), stroke: g === 0 ? css("--ink") : css("--rule"), "stroke-width": g === 0 ? 1.5 : 1}, svg);
+      el("line", {x1: L, x2: W - R, y1: Y(g), y2: Y(g), stroke: g === 0 ? css("--ink") : css("--rule"), "stroke-width": g === 0 ? 1.25 : 1}, svg);
       txt(svg, L - 6, Y(g) + 4, g, {"text-anchor": "end"});
     }
     txt(svg, 4, 14, "₹ lakh, cumulative");
     var d = vals.map(function (v, i) { return (i ? "L" : "M") + X(i) + "," + Y(v); }).join(" ");
-    el("path", {d: d, fill: "none", stroke: css("--load"), "stroke-width": 3, "stroke-linejoin": "round"}, svg);
-    var tick = narrow ? 5 : 5;
-    for (var y = 0; y < vals.length; y += tick) txt(svg, Math.min(Math.max(X(y), L + 8), W - 22), H - 12, y === 0 ? "start" : "yr " + y, {"text-anchor": "middle"});
+    el("path", {d: d, fill: "none", stroke: css("--blue"), "stroke-width": 2, "stroke-linejoin": "round"}, svg);
+    for (var y = 0; y < vals.length; y += 5) txt(svg, Math.min(Math.max(X(y), L + 8), W - 22), H - 12, y === 0 ? "start" : "yr " + y, {"text-anchor": "middle"});
     if (r.payback !== null) {
       var px = X(r.payback);
-      el("circle", {cx: px, cy: Y(0), r: 6, fill: css("--solar"), stroke: css("--ink"), "stroke-width": 1.5}, svg);
-      var label = "pays back in " + fmt(r.payback, 1) + " yr", right = px + 12 + label.length * 7 < W - R;
+      el("circle", {cx: px, cy: Y(0), r: 5, fill: css("--paper"), stroke: css("--ink"), "stroke-width": 2}, svg);
+      var label = "payback " + fmt(r.payback, 1) + " yr", right = px + 12 + label.length * 7.5 < W - R;
       txt(svg, right ? px + 12 : px - 12, Y(0) + 22, label, {class: "lab", style: "fill:" + css("--ink"), "text-anchor": right ? "start" : "end"});
     }
   }
 
   /* ---------- drawings open full size ---------- */
-  var lb = document.getElementById("lb");
+  var lb = $("lb");
   document.querySelectorAll("a.zoom").forEach(function (a) {
     a.addEventListener("click", function (e) {
       if (!lb || !lb.showModal) return;
       e.preventDefault();
-      var img = document.getElementById("lbImg");
+      var img = $("lbImg");
       img.src = a.dataset.full; img.alt = a.querySelector("img").alt;
-      document.getElementById("lbCap").textContent = a.dataset.cap;
-      document.getElementById("lbOpen").href = a.dataset.full;
+      $("lbCap").textContent = a.dataset.cap;
+      $("lbOpen").href = a.dataset.full;
       lb.showModal(); lb.querySelector(".pan").scrollTop = 0; lb.querySelector(".pan").scrollLeft = 0;
     });
   });
   if (lb) {
-    document.getElementById("lbClose").onclick = function () { lb.close(); };
+    $("lbClose").onclick = function () { lb.close(); };
     lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
   }
 
-  /* ---------- theme toggle ---------- */
-  var root = document.documentElement, btn = document.getElementById("themeBtn"), mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
-  function effective() { var t = root.getAttribute("data-theme"); return t || (mq && mq.matches ? "dark" : "light"); }
-  function labelBtn() { var d = effective() === "dark"; btn.textContent = d ? "Light" : "Dark"; btn.setAttribute("aria-label", d ? "Switch to light theme" : "Switch to dark theme"); }
+  /* ---------- theme: light by default, dark on request (footer) ---------- */
+  var root = document.documentElement, btn = $("themeBtn");
+  function labelBtn() { btn.textContent = root.getAttribute("data-theme") === "dark" ? "Light mode" : "Dark mode"; }
   btn.addEventListener("click", function () {
-    var next = effective() === "dark" ? "light" : "dark"; root.setAttribute("data-theme", next);
-    try { localStorage.setItem("theme", next); } catch (e) {}
+    var dark = root.getAttribute("data-theme") !== "dark";
+    if (dark) root.setAttribute("data-theme", "dark"); else root.removeAttribute("data-theme");
+    try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
     labelBtn(); redrawAll();
   });
-  if (mq) mq.addEventListener("change", function () { labelBtn(); redrawAll(); });
   labelBtn();
 
-  /* ---------- mark the current section in the nav ---------- */
-  var links = {};
-  document.querySelectorAll(".mini a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var id = e.target.id === "day" ? "energy" : e.target.id === "top" ? "top" : e.target.id;
-        if (!links[id]) return;
-        Object.keys(links).forEach(function (k) { links[k].removeAttribute("aria-current"); });
-        links[id].setAttribute("aria-current", "true");
-      });
-    }, {rootMargin: "-30% 0px -60% 0px"});
-    ["roof", "energy", "day", "grid", "calculator", "assumed"].forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
-    var hdr = document.querySelector("header.top"); if (hdr) { hdr.id = "overview"; links.overview = links.top; io.observe(hdr); }
+  /* ---------- current section in the contents ---------- */
+  var ids = ["site", "plant", "energy", "grid", "resco", "commissioning", "assumptions"];
+  var linkSets = document.querySelectorAll("aside.toc a, nav.bar a");
+  function mark(id) {
+    linkSets.forEach(function (a) { if (a.getAttribute("href") === "#" + id) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+    var cur = document.querySelector("nav.bar a[aria-current=true]");
+    if (cur && cur.scrollIntoView && window.innerWidth < 1200) { var bar = cur.parentNode; bar.scrollLeft = cur.offsetLeft - bar.clientWidth / 2 + cur.clientWidth / 2; }
   }
-
-  /* ---------- screen reader text for the provenance marks ---------- */
-  document.querySelectorAll("i.m").forEach(function (m) {
-    var s = document.createElement("span"); s.className = "sr";
-    s.textContent = m.classList.contains("v") ? " (verified) " : m.classList.contains("p") ? " (partly verified) " : " (assumed) ";
-    m.parentNode.insertBefore(s, m.nextSibling);
-  });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) mark(e.target.id); }); }, {rootMargin: "-20% 0px -70% 0px"});
+    ids.forEach(function (id) { io.observe($(id)); });
+  }
 
   /* ---------- redraw when the width changes (rotate, resize) ---------- */
   function redrawAll() { drawDay(); drawMonths(); if (lastR) drawCash(lastR); }

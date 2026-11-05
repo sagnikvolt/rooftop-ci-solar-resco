@@ -20,36 +20,65 @@ INK, PAPER, STEEL, SOLAR = (16, 32, 43), (237, 240, 238), (81, 99, 111), (196, 1
 ASSETS = os.path.join(ROOT, "site", "assets")
 
 
+def fm(size):
+    return ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", size)
+
+
 def f(size, bold=True):
     return ImageFont.truetype(FONT if bold else FONT_R, size)
 
 
 def og():
+    """Report-style card: title block, layout drawing, three numbers, on white."""
     r = model.run()
-    im = Image.new("RGB", (1200, 630), PAPER)
+    BLUE, RULE = (31, 95, 173), (205, 211, 217)
+    im = Image.new("RGB", (1200, 630), (255, 255, 255))
     d = ImageDraw.Draw(im)
-    d.rectangle([0, 0, 1200, 12], fill=SOLAR)
-    d.text((56, 52), "A 307 kWp rooftop plant,", font=f(54), fill=INK)
-    d.text((56, 114), "from survey to RESCO contract", font=f(54), fill=INK)
-    d.text((56, 190), "Design study, assumed warehouse roof in Hooghly district, West Bengal", font=f(24, False), fill=STEEL)
-    kpis = [("19.4%".replace("19.4", f"{r['project_irr']*100:.1f}"), "RESCO return a year"),
-            (f"₹{r['resco_tariff_year1']:.2f}", "per kWh, 20% below grid"),
-            (f"₹{r['client_saving_year1_rs']/1e5:.1f} lakh", "client saves in year 1")]
-    x = 56
-    for big, small in kpis:
-        d.text((x, 262), big, font=f(60), fill=SOLAR if x == 56 else INK)
-        d.text((x, 340), small, font=f(22, False), fill=STEEL)
-        x += 360
+    # title block
+    X0, Y0, X1, Y1 = 48, 44, 1152, 188
+    d.rectangle([X0, Y0, X1, Y1], outline=INK, width=2)
+    d.line([(X0, 120), (X1, 120)], fill=INK, width=2)
+    for x in (740, 960):
+        d.line([(x, Y0), (x, 120)], fill=INK, width=2)
+    for x in (520, 880):
+        d.line([(x, 120), (x, Y1)], fill=INK, width=2)
+    def lab(x, y, t): d.text((x, y), t, font=f(13, False), fill=STEEL)
+    lab(60, 52, "PROJECT"); d.text((60, 68), "307 kWp Rooftop Solar PV, C&I shed,", font=f(22), fill=INK)
+    d.text((60, 93), "Hooghly district, West Bengal", font=f(22), fill=INK)
+    lab(752, 52, "DOC NO."); d.text((752, 76), "RCI-307-DS-01", font=fm(20), fill=INK)
+    lab(972, 52, "REV"); d.text((972, 76), "B", font=fm(20), fill=INK)
+    lab(60, 128, "PREPARED BY"); d.text((60, 148), "Sagnik Kumar Nath, B.Tech EE (IEM Kolkata, 2027)", font=f(19, False), fill=INK)
+    lab(532, 128, "STATUS"); d.text((532, 148), "Design study, not for construction", font=f(19, False), fill=INK)
+    lab(892, 128, "DATE"); d.text((892, 148), "05-11-2026", font=fm(19), fill=INK)
+    # drawing frame with caption strip
     lay = Image.open(os.path.join(ROOT, "site", "assets", "layout.png")).convert("RGB")
-    lay = lay.crop((60, 70, lay.width - 40, lay.height - 40))      # drawing only, without its small title text
-    h = 200
+    lay = lay.crop((60, 70, lay.width - 40, lay.height - 40))
+    h = 330
     lay = lay.resize((int(lay.width * h / lay.height), h), Image.LANCZOS)
-    box = Image.new("RGB", (lay.width + 16, h + 16), (255, 255, 255))
-    box.paste(lay, (8, 8))
-    im.paste(box, (56, 398))
-    d.text((56 + box.width + 24, 430), "Roof layout: 544 modules", font=f(26), fill=INK)
-    d.text((56 + box.width + 24, 468), "409 MWh a year (PVsyst)", font=f(26, False), fill=STEEL)
-    d.text((56 + box.width + 24, 506), "rooftop.sagniknath.in", font=f(26), fill=SOLAR)
+    fx, fy = 48, 212
+    d.rectangle([fx, fy, fx + lay.width + 16, fy + h + 16 + 30], outline=INK, width=2)
+    im.paste(lay, (fx + 8, fy + 8))
+    d.rectangle([fx + 1, fy + h + 16, fx + lay.width + 15, fy + h + 45], fill=(243, 245, 247))
+    d.line([(fx, fy + h + 16), (fx + lay.width + 16, fy + h + 16)], fill=INK, width=2)
+    d.text((fx + 10, fy + h + 22), "DWG-01", font=fm(15), fill=INK)
+    d.text((fx + 84, fy + h + 22), "Roof layout", font=f(15, False), fill=INK)
+    # key numbers table
+    tx = fx + lay.width + 16 + 36
+    d.text((tx, 212), "KEY DESIGN DATA", font=f(13, False), fill=STEEL)
+    rows = [("Annual yield, P50", "409 MWh"),
+            ("RESCO tariff, year 1", f"₹{r['resco_tariff_year1']:.2f} /kWh"),
+            ("RESCO IRR", f"{r['project_irr']*100:.1f} %"),
+            ("Client saving, yr 1", f"₹{r['client_saving_year1_rs']/1e5:.1f} lakh")]
+    y = 238
+    d.line([(tx, y), (1152, y)], fill=INK, width=2)
+    for k, v in rows:
+        d.text((tx, y + 14), k, font=f(18, False), fill=INK)
+        d.text((1152, y + 10), v, font=fm(24), fill=BLUE, anchor="ra")
+        y += 62
+        d.line([(tx, y), (1152, y)], fill=RULE, width=1)
+    d.text((tx, y + 18), "Assumed warehouse roof; values from", font=f(16, False), fill=STEEL)
+    d.text((tx, y + 40), "the model in the repository.", font=f(16, False), fill=STEEL)
+    d.text((tx, 586), "rooftop.sagniknath.in", font=fm(20), fill=BLUE)
     im.save(os.path.join(ASSETS, "og.png"), optimize=True)
 
 
