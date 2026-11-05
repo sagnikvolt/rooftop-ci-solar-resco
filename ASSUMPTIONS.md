@@ -27,3 +27,7 @@ Format: parameter | value | source | reason. Add a row for every design or finan
 | Peak AC output | 0.80 kW per kWp for an east-west flush roof | ASSUMED | Used only to set the load limit; to be replaced by PVsyst results |
 | Number of inverters | 2 x Sungrow SG110CX (220 kVA) | Design choice | Fits 307 kWp; DC/AC 1.40 is high but east-west output peaks lower; PVsyst will show the clipping loss |
 | Regulatory limit | 332 kW (the lower of 500 kW and 350 kVA x 0.95) | VERIFICATION.md (partly verified) | Applied as kWp, the safer reading, because the unit is not stated |
+| PVsyst weather site | Kolkata, Meteonorm 8.1 (1991-2012), synthetic | PVsyst database | Nearest PVsyst site to Hooghly district; no measured data for the roof |
+| PVsyst inverter model | SG110CX-P2 (110 kWac, 180-1000 V, 12 MPPT) | PVsyst database | The plain SG110CX is not in the database; same power rating. Multi-MPPT off, one inverter per slope |
+| PVsyst losses | PVsyst defaults for wiring, mismatch, quality, thermal (Uc 20 W/m²K) | PVsyst defaults | No site data. Soiling, shading and unavailability are left at zero, so yield is optimistic; see pvsyst/results.md |
+| Bifacial gain | Not modelled | Design choice | Flush metal roof, almost no rear gain; safe side |
