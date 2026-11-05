@@ -6,322 +6,368 @@
    "pv_kwh": 66558.2,
    "self_kwh": 66558.2,
    "export_kwh": 0.0,
-   "self_fraction": 1.0
+   "self_fraction": 1.0,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 60,
    "pv_kwh": 79869.9,
    "self_kwh": 79869.9,
    "export_kwh": 0.0,
-   "self_fraction": 1.0
+   "self_fraction": 1.0,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 70,
    "pv_kwh": 93181.5,
    "self_kwh": 93181.5,
    "export_kwh": 0.0,
-   "self_fraction": 1.0
+   "self_fraction": 1.0,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 80,
    "pv_kwh": 106493.2,
    "self_kwh": 106480.8,
    "export_kwh": 12.4,
-   "self_fraction": 0.9999
+   "self_fraction": 0.9999,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 90,
    "pv_kwh": 119804.8,
    "self_kwh": 119686.4,
    "export_kwh": 118.4,
-   "self_fraction": 0.999
+   "self_fraction": 0.999,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 100,
    "pv_kwh": 133116.5,
    "self_kwh": 132661.8,
    "export_kwh": 454.6,
-   "self_fraction": 0.9966
+   "self_fraction": 0.9966,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 110,
    "pv_kwh": 146428.1,
    "self_kwh": 145358.0,
    "export_kwh": 1070.1,
-   "self_fraction": 0.9927
+   "self_fraction": 0.9927,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 120,
    "pv_kwh": 159739.8,
    "self_kwh": 157784.2,
    "export_kwh": 1955.5,
-   "self_fraction": 0.9878
+   "self_fraction": 0.9878,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 130,
    "pv_kwh": 173051.4,
    "self_kwh": 169982.5,
    "export_kwh": 3068.9,
-   "self_fraction": 0.9823
+   "self_fraction": 0.9823,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 140,
    "pv_kwh": 186363.0,
    "self_kwh": 181999.7,
    "export_kwh": 4363.3,
-   "self_fraction": 0.9766
+   "self_fraction": 0.9766,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 150,
    "pv_kwh": 199674.7,
    "self_kwh": 193944.8,
    "export_kwh": 5729.9,
-   "self_fraction": 0.9713
+   "self_fraction": 0.9713,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 160,
    "pv_kwh": 212986.3,
    "self_kwh": 205857.6,
    "export_kwh": 7128.7,
-   "self_fraction": 0.9665
+   "self_fraction": 0.9665,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 170,
    "pv_kwh": 226298.0,
    "self_kwh": 217733.1,
    "export_kwh": 8564.9,
-   "self_fraction": 0.9622
+   "self_fraction": 0.9622,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 180,
    "pv_kwh": 239609.6,
    "self_kwh": 229526.1,
    "export_kwh": 10083.5,
-   "self_fraction": 0.9579
+   "self_fraction": 0.9579,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 190,
    "pv_kwh": 252921.3,
    "self_kwh": 241259.6,
    "export_kwh": 11661.7,
-   "self_fraction": 0.9539
+   "self_fraction": 0.9539,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 200,
    "pv_kwh": 266232.9,
    "self_kwh": 252955.1,
    "export_kwh": 13277.8,
-   "self_fraction": 0.9501
+   "self_fraction": 0.9501,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 210,
    "pv_kwh": 279544.6,
    "self_kwh": 264626.2,
    "export_kwh": 14918.4,
-   "self_fraction": 0.9466
+   "self_fraction": 0.9466,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 220,
    "pv_kwh": 292856.2,
    "self_kwh": 276275.5,
    "export_kwh": 16580.7,
-   "self_fraction": 0.9434
+   "self_fraction": 0.9434,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 230,
    "pv_kwh": 306167.9,
    "self_kwh": 287915.6,
    "export_kwh": 18252.2,
-   "self_fraction": 0.9404
+   "self_fraction": 0.9404,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 240,
    "pv_kwh": 319479.5,
    "self_kwh": 299542.8,
    "export_kwh": 19936.7,
-   "self_fraction": 0.9376
+   "self_fraction": 0.9376,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 250,
    "pv_kwh": 332791.2,
    "self_kwh": 311164.7,
    "export_kwh": 21626.5,
-   "self_fraction": 0.935
+   "self_fraction": 0.935,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 260,
    "pv_kwh": 346102.8,
    "self_kwh": 322769.2,
    "export_kwh": 23333.6,
-   "self_fraction": 0.9326
+   "self_fraction": 0.9326,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 270,
    "pv_kwh": 359414.4,
    "self_kwh": 334340.3,
    "export_kwh": 25074.1,
-   "self_fraction": 0.9302
+   "self_fraction": 0.9302,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 280,
    "pv_kwh": 372726.1,
    "self_kwh": 345880.3,
    "export_kwh": 26845.8,
-   "self_fraction": 0.928
+   "self_fraction": 0.928,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 290,
    "pv_kwh": 386037.7,
    "self_kwh": 357415.1,
    "export_kwh": 28622.7,
-   "self_fraction": 0.9259
+   "self_fraction": 0.9259,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 300,
    "pv_kwh": 399349.4,
    "self_kwh": 368949.8,
    "export_kwh": 30399.6,
-   "self_fraction": 0.9239
+   "self_fraction": 0.9239,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 310,
    "pv_kwh": 412661.0,
    "self_kwh": 380484.5,
    "export_kwh": 32176.5,
-   "self_fraction": 0.922
+   "self_fraction": 0.922,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 320,
    "pv_kwh": 425972.7,
    "self_kwh": 392018.5,
    "export_kwh": 33954.2,
-   "self_fraction": 0.9203
+   "self_fraction": 0.9203,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 330,
    "pv_kwh": 439284.3,
    "self_kwh": 403550.0,
    "export_kwh": 35734.3,
-   "self_fraction": 0.9187
+   "self_fraction": 0.9187,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 340,
    "pv_kwh": 452596.0,
    "self_kwh": 415080.0,
    "export_kwh": 37515.9,
-   "self_fraction": 0.9171
+   "self_fraction": 0.9171,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 350,
    "pv_kwh": 465907.6,
    "self_kwh": 426603.2,
    "export_kwh": 39304.4,
-   "self_fraction": 0.9156
+   "self_fraction": 0.9156,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 360,
    "pv_kwh": 479219.3,
    "self_kwh": 438115.7,
    "export_kwh": 41103.6,
-   "self_fraction": 0.9142
+   "self_fraction": 0.9142,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 370,
    "pv_kwh": 492530.9,
    "self_kwh": 449620.6,
    "export_kwh": 42910.3,
-   "self_fraction": 0.9129
+   "self_fraction": 0.9129,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 380,
    "pv_kwh": 505842.6,
    "self_kwh": 461107.4,
    "export_kwh": 44735.2,
-   "self_fraction": 0.9116
+   "self_fraction": 0.9116,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 390,
    "pv_kwh": 519154.2,
    "self_kwh": 472540.3,
    "export_kwh": 46613.9,
-   "self_fraction": 0.9102
+   "self_fraction": 0.9102,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 400,
    "pv_kwh": 532465.8,
    "self_kwh": 483868.1,
    "export_kwh": 48597.7,
-   "self_fraction": 0.9087
+   "self_fraction": 0.9087,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 410,
    "pv_kwh": 545777.5,
    "self_kwh": 495095.1,
    "export_kwh": 50682.4,
-   "self_fraction": 0.9071
+   "self_fraction": 0.9071,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 420,
    "pv_kwh": 559089.1,
    "self_kwh": 506209.8,
    "export_kwh": 52879.3,
-   "self_fraction": 0.9054
+   "self_fraction": 0.9054,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 430,
    "pv_kwh": 572400.8,
    "self_kwh": 517199.9,
    "export_kwh": 55200.9,
-   "self_fraction": 0.9036
+   "self_fraction": 0.9036,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 440,
    "pv_kwh": 585712.4,
    "self_kwh": 527966.6,
    "export_kwh": 57745.8,
-   "self_fraction": 0.9014
+   "self_fraction": 0.9014,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 450,
    "pv_kwh": 599024.1,
    "self_kwh": 538388.2,
    "export_kwh": 60635.9,
-   "self_fraction": 0.8988
+   "self_fraction": 0.8988,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 460,
    "pv_kwh": 612335.7,
    "self_kwh": 548403.1,
    "export_kwh": 63932.6,
-   "self_fraction": 0.8956
+   "self_fraction": 0.8956,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 470,
    "pv_kwh": 625647.4,
    "self_kwh": 558122.6,
    "export_kwh": 67524.8,
-   "self_fraction": 0.8921
+   "self_fraction": 0.8921,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 480,
    "pv_kwh": 638959.0,
    "self_kwh": 567544.3,
    "export_kwh": 71414.7,
-   "self_fraction": 0.8882
+   "self_fraction": 0.8882,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 490,
    "pv_kwh": 652270.7,
    "self_kwh": 576705.4,
    "export_kwh": 75565.3,
-   "self_fraction": 0.8842
+   "self_fraction": 0.8842,
+   "tod_avg_rate": 6.9
   },
   {
    "kwp": 500,
    "pv_kwh": 665582.3,
    "self_kwh": 585593.3,
    "export_kwh": 79989.0,
-   "self_fraction": 0.8798
+   "self_fraction": 0.8798,
+   "tod_avg_rate": 6.9
   }
  ]
 }

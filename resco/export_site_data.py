@@ -35,6 +35,7 @@ for m in range(1, 13):
     monthly_kwh.append(round(sum(pv[m]) * days))
 
 base = model.run()
+tod = model.run(tod=True)
 data = {
     "design_kwp": 307.4,
     "pv_kw_by_month_hour": [[round(x, 1) for x in pv[m]] for m in range(1, 13)],
@@ -44,7 +45,9 @@ data = {
     "curve": sorted(model.self_consumption_curve(step=10, lo=50, hi=500) + [dict(kwp=307.4, **{k: (round(v, 1) if k != "self_fraction" else round(v, 4)) for k, v in model.year1_energy(307.4).items()})], key=lambda r: r["kwp"]),
     "inputs": model.INPUTS,
     "base_result": {k: base[k] for k in ("project_irr", "payback_years", "npv_rs", "capex_rs",
-                                          "client_saving_year1_rs", "client_saving_total_rs")},
+                                          "client_saving_year1_rs", "client_saving_total_rs", "resco_tariff_year1")},
+    "tod_case": {k: tod[k] for k in ("project_irr", "payback_years", "client_saving_year1_rs")} | {"avoided_rate": tod["inputs"]["grid_energy_tariff"]},
+    "sensitivity": model.sensitivity_table(),
 }
 out = os.path.join(HERE, "..", "site", "data.js")
 with open(out, "w") as f:

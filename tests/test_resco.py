@@ -37,3 +37,24 @@ def test_discount_moves_returns_the_right_way():
 def test_capex_check_by_hand():
     r = model.run()
     assert abs(r["capex_rs"] - 307.4 * 1000 * 38) < 1
+
+
+def test_grid_tariff_is_energy_charge_not_demand_charge():
+    # WBSEDCL Rate E(B): 707/706/705 P/kWh energy, 384 Rs/kVA/month demand (VERIFICATION.md, corrected 5 Nov 2026)
+    assert 7.05 <= model.INPUTS["grid_energy_tariff"] <= 7.07
+    assert model.DEMAND_CHARGE_RS_PER_KVA_MONTH == 384
+    assert model.INPUTS["grid_energy_tariff"] > model.INPUTS["feed_in_tariff"]     # self-use must be worth more than export
+
+
+def test_tod_case_is_close_to_base_and_uses_daytime_rate():
+    base, tod = model.run(), model.run(tod=True)
+    avoided = tod["inputs"]["grid_energy_tariff"]
+    assert 6.9 < avoided < 7.0                       # almost all solar falls in the 06-17 h band at Rs 6.94
+    assert abs(base["project_irr"] - tod["project_irr"]) < 0.01
+
+
+def test_base_case_numbers():
+    r = model.run()
+    assert abs(r["resco_tariff_year1"] - 5.648) < 0.001
+    assert 0.19 < r["project_irr"] < 0.20
+    assert 5.0 < r["payback_years"] < 5.6

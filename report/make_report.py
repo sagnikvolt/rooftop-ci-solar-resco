@@ -111,9 +111,9 @@ def build(path):
           P("Summary", H2),
           P(f"A metal-sheet shed with a 60 m ridge and two 20 m slopes (east and west, 7° tilt) takes {D['n_modules']} modules of 565 Wp, which is {D['dc_kwp']:.1f} kWp, on two 110 kVA inverters. "
             f"PVsyst predicts 409,153 kWh a year, and {E['self_fraction']*100:.0f}% of it is used by an assumed two-shift factory. "
-            f"A RESCO that charges 20% below the grid energy charge of ₹3.84 per kWh earns about {BASE['project_irr']*100:.0f}% a year on a capex of ₹{BASE['capex_rs']/1e7:.2f} crore, "
+            f"A RESCO that charges 20% below the grid energy charge of about ₹7.06 per kWh earns about {BASE['project_irr']*100:.0f}% a year (before tax and loan) on a capex of ₹{BASE['capex_rs']/1e7:.2f} crore, "
             f"paying back in {BASE['payback_years']:.1f} years, while the factory saves ₹{BASE['client_saving_year1_rs']/1e5:.1f} lakh in the first year."),
-          P("The main lesson: at an HV industrial energy charge this low, RESCO returns are thin and the window between a discount the client likes and a return the RESCO accepts is narrow."),
+          P("The main lesson: at an 11 kV industrial energy charge of about ₹7 per kWh, a 20 to 30% discount gives the developer roughly 17 to 19% a year and the factory a real saving with no capex. The biggest risks are the capex (a quotation is needed), the actual yield (soiling and shading are not yet modelled) and the reading of the capacity cap."),
           P("How to read the marks", H2),
           P("<b>Verified</b>: taken from a document read this month (datasheet, utility document). <b>Partly verified</b>: from a secondary source or one source only. <b>Assumed</b>: a design choice or placeholder with its reason logged in ASSUMPTIONS.md. The full source list with links and access dates is in VERIFICATION.md in the repository."),
           PageBreak()]
@@ -154,7 +154,7 @@ def build(path):
           P("Each hour, the factory uses the lower of solar output and its load; surplus is exported. The RESCO charges the factory its tariff for the energy used; the factory saves the difference to the grid energy charge. Demand-charge savings are set to zero. Cash flows run for 25 years with degradation of 1% in year one and 0.4% a year after (from the module's linear warranty), a 2% yearly tariff rise (assumed), and maintenance at 1% of capex (assumed)."),
           table(wrap([["Base case", "Value", "Status"],
                       ["Capex", f"₹38 per Wp = ₹{BASE['capex_rs']/1e7:.2f} crore", "Partly verified (two installer pages)"],
-                      ["Grid energy charge", "₹3.84 per kWh", "Verified (FY 2025-26)"],
+                      ["Grid energy charge", "₹7.06 per kWh (Rate E(B), 11 kV; monsoon column, flat)", "Verified (FY 2025-26); MVCA extra, not included"],
                       ["RESCO tariff, year 1", f"₹{BASE['resco_tariff_year1']:.2f} per kWh (20% discount)", "Assumed discount"],
                       ["Solar used on site", f"{E['self_kwh']:,.0f} kWh ({E['self_fraction']*100:.1f}%)", "Computed"],
                       ["RESCO return", f"{BASE['project_irr']*100:.1f}% a year, no loan or tax", "Computed"],
@@ -162,11 +162,11 @@ def build(path):
                       ["Factory saving, year 1 / 25 years", f"₹{BASE['client_saving_year1_rs']/1e5:.1f} lakh / ₹{BASE['client_saving_total_rs']/1e7:.2f} crore", "Computed"]]),
                 [52 * mm, 62 * mm, W - 114 * mm]),
           Spacer(1, 8),
-          pic(os.path.join(HERE, "irr_vs_discount.png"), W * 0.82),
+          pic(os.path.join(HERE, "irr_vs_discount.png"), W * 0.70),
           P("RESCO return as the discount and the capex change.", SMALL),
-          pic(os.path.join(HERE, "self_use_vs_size.png"), W * 0.82),
+          pic(os.path.join(HERE, "self_use_vs_size.png"), W * 0.70),
           P("Share of solar energy used on site, by plant size. Above about 350 kWp the factory cannot absorb it at weekends, and the share falls.", SMALL),
-          P("Reading: the self-use is robust because the plant is sized to the daytime load. The money is thin because the grid energy charge is low; installer pages that quote three to four year paybacks assume ₹8 to ₹12 per kWh. A client that bought the plant outright would see roughly a 7 to 9 year payback. A RESCO trades that for zero upfront cost and a 20% saving."),
+          P("Reading: the self-use is robust because the plant is sized to the daytime load. The grid energy charge of about ₹7 per kWh is what makes the RESCO work. A client that bought the plant outright would see roughly a 4 to 5 year payback; a RESCO trades that for zero upfront cost and a 20% saving. If the factory is on the time-of-day scheme E(BT), solar offsets the 06:00 to 17:00 rate (about ₹6.94), and the return drops only slightly (about 19.0%). The demand charge (₹384 per kVA per month) is not counted as a saving. The sensitivity chart shows the return falling as the discount or the capex rises."),
           PageBreak()]
 
     s += [P("6. Commissioning and safety", H2),

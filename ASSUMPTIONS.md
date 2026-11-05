@@ -14,7 +14,7 @@ Format: parameter | value | source | reason. Add a row for every design or finan
 | Usable area | 991.6 m2 per slope, 1,983.2 m2 total (83 % of roof) | Computed by survey/usable_area.py | From the assumptions above |
 | Client type | Light manufacturing or packaging unit, two shifts | ASSUMED | Daytime-heavy load that suits rooftop solar |
 | Shift pattern | 06:00 to 22:00, Monday to Saturday; Sunday base load only (20 % of working load); night base load 15 % | ASSUMED | Typical two-shift small factory |
-| Supply | HV industrial, 11 kV, WBSEDCL area (rate E(B)), contract demand 350 kVA, power factor 0.95 | ASSUMED | WBSEDCL HV rate found in VERIFICATION.md; confirm which licensee supplies the exact site |
+| Supply | HV industrial, 11 kV, WBSEDCL area (rate E(B), energy about Rs 7.06/kWh, demand Rs 384/kVA/month), contract demand 350 kVA, power factor 0.95 | ASSUMED | WBSEDCL rate found in VERIFICATION.md (corrected 5 Nov 2026); confirm which licensee supplies the exact site (the DPL area has a different tariff) |
 | Monthly consumption | 120,000 kWh average (1,440,000 kWh per year), 10 % higher May to Sep, 5 % lower Nov to Feb | ASSUMED | Gives an average load of 164 kW and a peak of 293.5 kW, below the 332 kW contract demand |
 | Daytime share | 63.3 % of annual energy falls between 06:00 and 17:00; 46.2 % between 08:00 and 16:00 | Computed by survey/hourly_load.py | Result of the shift pattern above |
 | Record low temperature | 3.4 degC | Project 1 (Kolkata data), see that repo | Reused; the Singur belt is close; to be checked against site data |
@@ -43,3 +43,7 @@ Format: parameter | value | source | reason. Add a row for every design or finan
 | Demand charge savings | Zero | Design choice | Solar cannot be relied on to cut contract demand; conservative |
 | Export value | HV feed-in tariff Rs 3.89 per kWh (net billing reading) | VERIFICATION.md | Net metering would credit against imports instead; exports are only 8 % of output |
 | Tax, loan, inverter replacement | Not modelled | Design choice | Keeps the model simple enough to explain; listed as limits in resco/results.md |
+| Season weighting of the energy charge | One flat Rs 7.06 per kWh (the monsoon column) for all months | ASSUMED | The document does not define summer/monsoon/winter months for industry; the three columns differ by 2 paise (707/706/705) so the effect is under 0.3 % |
+| MVCA (fuel cost adjustment) | Not included in the grid price | ASSUMED | Charged on top of the energy charge; no value in the document; can be positive or negative |
+| Demand charge saving | Rs 0: Rs 384 per kVA per month is not counted as a saving | ASSUMED (conservative) | Solar cannot be relied on to lower contract demand |
+| TOD case | Optional sensitivity only: client on Rate E(BT), solar offsets the hour-by-hour rate; base case is Rate E(B) | Design choice | We do not know which scheme the client is on |

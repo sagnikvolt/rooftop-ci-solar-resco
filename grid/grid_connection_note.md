@@ -42,7 +42,7 @@ Also, the contract demand of 350 kVA is itself an ASSUMED client value.
 
 **FY 2025-26 feed-in tariff:** EHV Rs 3.73/kWh, **HV Rs 3.89/kWh**, LT and MV Rs 4.37/kWh. For an 11 kV HT consumer the HV figure is the relevant one. The FY 2026-27 value was not found (Open).
 
-A big industrial consumer pays about Rs 3.84/kWh energy charge (see `VERIFICATION.md`), close to the HV feed-in rate. This is why exports are worth little and why a plant sized to daytime load makes sense.
+An 11 kV industrial consumer on Rate E(B) pays about Rs 7.06/kWh energy charge plus a Rs 384/kVA/month demand charge (see `VERIFICATION.md`; MVCA extra). Self-used solar therefore saves nearly twice what an export earns (Rs 3.89), which is why a plant sized to the daytime load makes sense.
 
 ## 5. RESCO
 
