@@ -7,3 +7,7 @@ Thumbs.db
 *.bak
 *.dwl
 *.dwl2
+
+# local briefs and plan files, not part of the repository
+Sonnet_Brief_*.md
+Project3_*Plan*.md

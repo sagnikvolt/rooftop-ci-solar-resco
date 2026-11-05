@@ -47,7 +47,7 @@ python3 resco/write_results.py         # rewrites resco/results.md
 python3 resco/export_site_data.py      # rewrites site/data.js
 python3 report/make_report.py          # rebuilds the PDF (needs reportlab, matplotlib)
 python3 report/make_og_image.py        # rebuilds the link-preview image, favicon and copies the PDF and SLD into site/assets
-pip install -r requirements-dev.txt && python3 -m pytest    # tests (the calculator test also needs node)
+python3 -m unittest discover -s tests  # tests, no extra packages (the calculator test needs node; pytest also works)
 ```
 
 ## Related work

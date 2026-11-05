@@ -15,7 +15,7 @@ How this works (worked example, numbers from equipment.py):
 """
 from equipment import INVERTER, MODULE
 
-T_COLD_C = 3.4      # record low, taken from Project 1 (Kolkata); ASSUMED to apply near Singur
+T_COLD_C = 3.4      # record low, taken from Project 1 (Kolkata); ASSUMED to apply in Hooghly district
 T_CELL_HOT_C = 75.0  # ASSUMED hot cell temperature for flush-mounted modules on a metal roof
 VOC_MARGIN = 0.05   # keep 5 % under the voltage limit (same margin as Project 1)
 

@@ -4,7 +4,7 @@ Format: parameter | value | source | reason. Add a row for every design or finan
 
 | Parameter | Value | Source | Reason |
 |---|---|---|---|
-| Site | Anonymised warehouse in Hooghly district (Singur-Dankuni industrial belt); no real company or address | Design choice | The study is independent, not a real client project |
+| Site | Anonymised warehouse in Hooghly district; no real company or address | Design choice | The study is independent, not a real client project |
 | Roof type | Metal sheet (trapezoidal profile) on steel purlins, gable shape | ASSUMED | Most common warehouse and factory shed type in the belt |
 | Roof size | 60 m along the ridge x 20 m up each slope; two slopes = 2,400 m2 | ASSUMED | Typical single-bay shed; chosen to fit a 300 to 500 kWp plant |
 | Roof orientation | Ridge runs north-south; slopes face east (azimuth 90 deg) and west (270 deg) | ASSUMED | East-west roofs are common and suit flush-mount on both slopes |
@@ -17,7 +17,7 @@ Format: parameter | value | source | reason. Add a row for every design or finan
 | Supply | HV industrial, 11 kV, WBSEDCL area (rate E(B), energy about Rs 7.06/kWh, demand Rs 384/kVA/month), contract demand 350 kVA, power factor 0.95 | ASSUMED | WBSEDCL rate found in VERIFICATION.md (corrected 5 Nov 2026); confirm which licensee supplies the exact site (the DPL area has a different tariff) |
 | Monthly consumption | 120,000 kWh average (1,440,000 kWh per year), 10 % higher May to Sep, 5 % lower Nov to Feb | ASSUMED | Gives an average load of 164 kW and a peak of 293.5 kW, below the 332 kW contract demand |
 | Daytime share | 63.3 % of annual energy falls between 06:00 and 17:00; 46.2 % between 08:00 and 16:00 | Computed by survey/hourly_load.py | Result of the shift pattern above |
-| Record low temperature | 3.4 degC | Project 1 (Kolkata data), see that repo | Reused; the Singur belt is close; to be checked against site data |
+| Record low temperature | 3.4 degC | Project 1 (Kolkata data), see that repo | Reused; Hooghly district is close to Kolkata; to be checked against site data |
 | Hot cell temperature | 75 degC | ASSUMED | Flush-mounted modules on a metal roof run hot with little air flow behind |
 | Voc safety margin | 5 % below the voltage limit | Same as Project 1 | Keeps strings clear of the inverter and MC4 limits on the coldest morning |
 | Modules in series | 17 (931.8 V cold, 629.4 V hot) | Computed by design/strings.py | 18 would be only 1.3 % under the 1,000 V MC4 limit |

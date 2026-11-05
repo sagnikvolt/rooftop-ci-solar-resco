@@ -4,8 +4,7 @@ import os
 import shutil
 import subprocess
 import sys
-
-import pytest
+import unittest
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 sys.path.insert(0, os.path.join(ROOT, "resco"))
@@ -25,12 +24,13 @@ console.log(JSON.stringify(out));
 """
 
 
-@pytest.mark.skipif(shutil.which("node") is None, reason="node not installed")
-def test_js_matches_python():
-    res = subprocess.run(["node", "-e", JS, os.path.abspath(ROOT)], capture_output=True, text=True, check=True)
-    js = json.loads(res.stdout)
-    cases = [{}, {"resco_discount": 0.4, "capex_per_wp": 50}, {"plant_kwp": 150, "years": 15}]
-    for j, c in zip(js, cases):
-        p = model.run(**c)
-        assert abs(j["irr"] - p["project_irr"]) < 0.002           # curve interpolation allows a tiny gap
-        assert abs(j["saving1"] - p["client_saving_year1_rs"]) / p["client_saving_year1_rs"] < 0.003
+class SiteModelTests(unittest.TestCase):
+    @unittest.skipIf(shutil.which("node") is None, "node not installed")
+    def test_js_matches_python(self):
+        res = subprocess.run(["node", "-e", JS, os.path.abspath(ROOT)], capture_output=True, text=True, check=True)
+        js = json.loads(res.stdout)
+        cases = [{}, {"resco_discount": 0.4, "capex_per_wp": 50}, {"plant_kwp": 150, "years": 15}]
+        for j, c in zip(js, cases):
+            p = model.run(**c)
+            assert abs(j["irr"] - p["project_irr"]) < 0.002           # curve interpolation allows a tiny gap
+            assert abs(j["saving1"] - p["client_saving_year1_rs"]) / p["client_saving_year1_rs"] < 0.003
