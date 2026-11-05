@@ -8,5 +8,5 @@
 | 3 | Grid connection and regulation, single-line diagram | Done (gazette text, FY2026-27 tariff still open) |
 | 4 | RESCO financial model and sensitivity | Done (inputs partly sourced; see resco/results.md) |
 | 5 | Commissioning checklist and safety page | Done (IEC 62446-1 text not read) |
-| 6 | Showcase website and PDF report | Not started |
+| 6 | Showcase website and PDF report | Done, site and PDF built; not yet deployed (waiting for push approval) |
 | 7 | Write-up and sharing | Not started |

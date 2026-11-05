@@ -82,6 +82,6 @@ def build():
 
 if __name__ == "__main__":
     fig = build()
-    fig.savefig(os.path.join(HERE, "sld.png"), dpi=130)
-    fig.savefig(os.path.join(HERE, "sld.svg"))
+    fig.savefig(os.path.join(HERE, "sld.png"), dpi=130, bbox_inches="tight")
+    fig.savefig(os.path.join(HERE, "sld.svg"), bbox_inches="tight")
     print("wrote drawings/sld.png and drawings/sld.svg")

@@ -108,7 +108,7 @@ def draw_png(path):
                  "Empty roof = 88 spare positions per slope (kept free for access and future expansion).",
                  fontsize=10)
     fig.tight_layout()
-    fig.savefig(path, dpi=130)
+    fig.savefig(path, dpi=130, bbox_inches="tight")
     plt.close(fig)
 
 

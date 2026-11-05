@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1152pt" height="612pt" viewBox="0 0 1152 612" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="907.2pt" height="546.84pt" viewBox="0 0 907.2 546.84" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-05T07:23:01.707865</dc:date>
+    <dc:date>2026-11-05T07:32:16.939541</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,225 +21,225 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 612 
-L 1152 612 
-L 1152 0 
+   <path d="M 0 546.84 
+L 907.2 546.84 
+L 907.2 0 
 L 0 0 
 z
 " style="fill: #ffffff"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 157.95 234.7704 
-L 308.61 234.7704 
-Q 309.168 234.7704 309.168 234.216 
-L 309.168 145.512 
-Q 309.168 144.9576 308.61 144.9576 
-L 157.95 144.9576 
-Q 157.392 144.9576 157.392 145.512 
-L 157.392 234.216 
-Q 157.392 234.7704 157.95 234.7704 
+    <path d="M 21.15 229.7304 
+L 171.81 229.7304 
+Q 172.368 229.7304 172.368 229.176 
+L 172.368 140.472 
+Q 172.368 139.9176 171.81 139.9176 
+L 21.15 139.9176 
+Q 20.592 139.9176 20.592 140.472 
+L 20.592 229.176 
+Q 20.592 229.7304 21.15 229.7304 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #fff4cc; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #fff4cc; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
-    <path d="M 367.2 229.2264 
-L 489.96 229.2264 
-Q 490.518 229.2264 490.518 228.672 
-L 490.518 151.056 
-Q 490.518 150.5016 489.96 150.5016 
-L 367.2 150.5016 
-Q 366.642 150.5016 366.642 151.056 
-L 366.642 228.672 
-Q 366.642 229.2264 367.2 229.2264 
+    <path d="M 230.4 224.1864 
+L 353.16 224.1864 
+Q 353.718 224.1864 353.718 223.632 
+L 353.718 146.016 
+Q 353.718 145.4616 353.16 145.4616 
+L 230.4 145.4616 
+Q 229.842 145.4616 229.842 146.016 
+L 229.842 223.632 
+Q 229.842 224.1864 230.4 224.1864 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #dff0ff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #dff0ff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
-    <path d="M 545.76 209.8224 
-L 618.3 209.8224 
-Q 618.858 209.8224 618.858 209.268 
-L 618.858 170.46 
-Q 618.858 169.9056 618.3 169.9056 
-L 545.76 169.9056 
-Q 545.202 169.9056 545.202 170.46 
-L 545.202 209.268 
-Q 545.202 209.8224 545.76 209.8224 
+    <path d="M 408.96 204.7824 
+L 481.5 204.7824 
+Q 482.058 204.7824 482.058 204.228 
+L 482.058 165.42 
+Q 482.058 164.8656 481.5 164.8656 
+L 408.96 164.8656 
+Q 408.402 164.8656 408.402 165.42 
+L 408.402 204.228 
+Q 408.402 204.7824 408.96 204.7824 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
-    <path d="M 157.95 445.4424 
-L 308.61 445.4424 
-Q 309.168 445.4424 309.168 444.888 
-L 309.168 356.184 
-Q 309.168 355.6296 308.61 355.6296 
-L 157.95 355.6296 
-Q 157.392 355.6296 157.392 356.184 
-L 157.392 444.888 
-Q 157.392 445.4424 157.95 445.4424 
+    <path d="M 21.15 440.4024 
+L 171.81 440.4024 
+Q 172.368 440.4024 172.368 439.848 
+L 172.368 351.144 
+Q 172.368 350.5896 171.81 350.5896 
+L 21.15 350.5896 
+Q 20.592 350.5896 20.592 351.144 
+L 20.592 439.848 
+Q 20.592 440.4024 21.15 440.4024 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #fff4cc; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #fff4cc; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
-    <path d="M 367.2 439.8984 
-L 489.96 439.8984 
-Q 490.518 439.8984 490.518 439.344 
-L 490.518 361.728 
-Q 490.518 361.1736 489.96 361.1736 
-L 367.2 361.1736 
-Q 366.642 361.1736 366.642 361.728 
-L 366.642 439.344 
-Q 366.642 439.8984 367.2 439.8984 
+    <path d="M 230.4 434.8584 
+L 353.16 434.8584 
+Q 353.718 434.8584 353.718 434.304 
+L 353.718 356.688 
+Q 353.718 356.1336 353.16 356.1336 
+L 230.4 356.1336 
+Q 229.842 356.1336 229.842 356.688 
+L 229.842 434.304 
+Q 229.842 434.8584 230.4 434.8584 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #dff0ff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #dff0ff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
-    <path d="M 545.76 420.4944 
-L 618.3 420.4944 
-Q 618.858 420.4944 618.858 419.94 
-L 618.858 381.132 
-Q 618.858 380.5776 618.3 380.5776 
-L 545.76 380.5776 
-Q 545.202 380.5776 545.202 381.132 
-L 545.202 419.94 
-Q 545.202 420.4944 545.76 420.4944 
+    <path d="M 408.96 415.4544 
+L 481.5 415.4544 
+Q 482.058 415.4544 482.058 414.9 
+L 482.058 376.092 
+Q 482.058 375.5376 481.5 375.5376 
+L 408.96 375.5376 
+Q 408.402 375.5376 408.402 376.092 
+L 408.402 414.9 
+Q 408.402 415.4544 408.96 415.4544 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
-    <path d="M 702 334.5624 
-L 791.28 334.5624 
-Q 791.838 334.5624 791.838 334.008 
-L 791.838 273.024 
-Q 791.838 272.4696 791.28 272.4696 
-L 702 272.4696 
-Q 701.442 272.4696 701.442 273.024 
-L 701.442 334.008 
-Q 701.442 334.5624 702 334.5624 
+    <path d="M 565.2 329.5224 
+L 654.48 329.5224 
+Q 655.038 329.5224 655.038 328.968 
+L 655.038 267.984 
+Q 655.038 267.4296 654.48 267.4296 
+L 565.2 267.4296 
+Q 564.642 267.4296 564.642 267.984 
+L 564.642 328.968 
+Q 564.642 329.5224 565.2 329.5224 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #e6f4e6; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #e6f4e6; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
-    <path d="M 830.34 337.3344 
-L 919.62 337.3344 
-Q 920.178 337.3344 920.178 336.78 
-L 920.178 270.252 
-Q 920.178 269.6976 919.62 269.6976 
-L 830.34 269.6976 
-Q 829.782 269.6976 829.782 270.252 
-L 829.782 336.78 
-Q 829.782 337.3344 830.34 337.3344 
+    <path d="M 693.54 332.2944 
+L 782.82 332.2944 
+Q 783.378 332.2944 783.378 331.74 
+L 783.378 265.212 
+Q 783.378 264.6576 782.82 264.6576 
+L 693.54 264.6576 
+Q 692.982 264.6576 692.982 265.212 
+L 692.982 331.74 
+Q 692.982 332.2944 693.54 332.2944 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
-    <path d="M 830.34 445.4424 
-L 919.62 445.4424 
-Q 920.178 445.4424 920.178 444.888 
-L 920.178 389.448 
-Q 920.178 388.8936 919.62 388.8936 
-L 830.34 388.8936 
-Q 829.782 388.8936 829.782 389.448 
-L 829.782 444.888 
-Q 829.782 445.4424 830.34 445.4424 
+    <path d="M 693.54 440.4024 
+L 782.82 440.4024 
+Q 783.378 440.4024 783.378 439.848 
+L 783.378 384.408 
+Q 783.378 383.8536 782.82 383.8536 
+L 693.54 383.8536 
+Q 692.982 383.8536 692.982 384.408 
+L 692.982 439.848 
+Q 692.982 440.4024 693.54 440.4024 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
-    <path d="M 830.34 528.6024 
-L 919.62 528.6024 
-Q 920.178 528.6024 920.178 528.048 
-L 920.178 472.608 
-Q 920.178 472.0536 919.62 472.0536 
-L 830.34 472.0536 
-Q 829.782 472.0536 829.782 472.608 
-L 829.782 528.048 
-Q 829.782 528.6024 830.34 528.6024 
+    <path d="M 693.54 523.5624 
+L 782.82 523.5624 
+Q 783.378 523.5624 783.378 523.008 
+L 783.378 467.568 
+Q 783.378 467.0136 782.82 467.0136 
+L 693.54 467.0136 
+Q 692.982 467.0136 692.982 467.568 
+L 692.982 523.008 
+Q 692.982 523.5624 693.54 523.5624 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #ffe0e0; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #ffe0e0; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
-    <path d="M 157.95 534.1464 
-L 548.55 534.1464 
-Q 549.108 534.1464 549.108 533.592 
-L 549.108 469.836 
-Q 549.108 469.2816 548.55 469.2816 
-L 157.95 469.2816 
-Q 157.392 469.2816 157.392 469.836 
-L 157.392 533.592 
-Q 157.392 534.1464 157.95 534.1464 
+    <path d="M 21.15 529.1064 
+L 411.75 529.1064 
+Q 412.308 529.1064 412.308 528.552 
+L 412.308 464.796 
+Q 412.308 464.2416 411.75 464.2416 
+L 21.15 464.2416 
+Q 20.592 464.2416 20.592 464.796 
+L 20.592 528.552 
+Q 20.592 529.1064 21.15 529.1064 
 z
-" clip-path="url(#p104259c2a7)" style="fill: #f5f5f5; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pd10b5a93ef)" style="fill: #f5f5f5; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_1">
-    <path d="M 308.61 189.864 
-L 367.2 189.864 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 171.81 184.824 
+L 230.4 184.824 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_2">
-    <path d="M 489.96 189.864 
-L 545.76 189.864 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 353.16 184.824 
+L 408.96 184.824 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_3">
-    <path d="M 618.3 189.864 
-L 662.94 189.864 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 481.5 184.824 
+L 526.14 184.824 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_4">
-    <path d="M 662.94 189.864 
-L 662.94 303.516 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 526.14 184.824 
+L 526.14 298.476 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_5">
-    <path d="M 308.61 400.536 
-L 367.2 400.536 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 171.81 395.496 
+L 230.4 395.496 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_6">
-    <path d="M 489.96 400.536 
-L 545.76 400.536 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 353.16 395.496 
+L 408.96 395.496 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_7">
-    <path d="M 618.3 400.536 
-L 662.94 400.536 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 481.5 395.496 
+L 526.14 395.496 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_8">
-    <path d="M 662.94 400.536 
-L 662.94 303.516 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 526.14 395.496 
+L 526.14 298.476 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_9">
-    <path d="M 662.94 303.516 
-L 702 303.516 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 526.14 298.476 
+L 565.2 298.476 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_10">
-    <path d="M 791.28 303.516 
-L 830.34 303.516 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 654.48 298.476 
+L 693.54 298.476 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_11">
-    <path d="M 874.98 336.78 
-L 874.98 389.448 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 738.18 331.74 
+L 738.18 384.408 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_12">
-    <path d="M 874.98 444.888 
-L 874.98 472.608 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 738.18 439.848 
+L 738.18 467.568 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_13">
-    <path d="M 919.62 500.328 
-L 986.58 500.328 
-" clip-path="url(#p104259c2a7)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 782.82 495.288 
+L 849.78 495.288 
+" clip-path="url(#pd10b5a93ef)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="text_1">
     <!-- East slope PV array -->
-    <g transform="translate(198.802266 174.442857) scale(0.075 -0.075)">
+    <g transform="translate(62.002266 169.402857) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-5f" d="M 563 0 
 L 3428 0 
@@ -458,7 +458,7 @@ z
      <use xlink:href="#Inter-Regular-3e8" transform="translate(863.203125 0)"/>
     </g>
     <!-- 16 strings x 17 modules -->
-    <g transform="translate(192.315938 183.517564) scale(0.075 -0.075)">
+    <g transform="translate(55.515938 178.477564) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-540" d="M 2041 4656 
 L 1313 4656 
@@ -655,7 +655,7 @@ z
      <use xlink:href="#Inter-Regular-369" transform="translate(1039.59375 0)"/>
     </g>
     <!-- = 272 x 565 Wp = 153.7 kWp -->
-    <g transform="translate(181.899141 192.592271) scale(0.075 -0.075)">
+    <g transform="translate(45.099141 187.552271) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-5ff" d="M 706 1394 
 L 3531 1394 
@@ -816,7 +816,7 @@ z
      <use xlink:href="#Inter-Regular-34d" transform="translate(1308.921875 0)"/>
     </g>
     <!-- 2 strings per MPPT, no string fuses -->
-    <g transform="translate(170.825508 201.666979) scale(0.075 -0.075)">
+    <g transform="translate(34.025508 196.626979) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-125" d="M 563 0 
 L 1128 0 
@@ -915,7 +915,7 @@ z
      <use xlink:href="#Inter-Regular-369" transform="translate(1612.671875 0)"/>
     </g>
     <!-- (2 x Isc = 27.5 A &lt; module 30 A fuse rating) -->
-    <g transform="translate(156.334102 210.741686) scale(0.075 -0.075)">
+    <g transform="translate(19.534102 205.701686) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-5a8" d="M 681 2191 
 C 681 1278 956 325 1488 -578 
@@ -1046,7 +1046,7 @@ z
    </g>
    <g id="text_2">
     <!-- DC PV cable -->
-    <g transform="translate(318.65332 170.911254) scale(0.065 -0.065)">
+    <g transform="translate(181.85332 165.871254) scale(0.065 -0.065)">
      <defs>
       <path id="Inter-Regular-54" d="M 2016 0 
 C 3434 0 4238 881 4238 2338 
@@ -1110,7 +1110,7 @@ z
      <use xlink:href="#Inter-Regular-267" transform="translate(534.0625 0)"/>
     </g>
     <!-- (size to be calculated) -->
-    <g transform="translate(303.975 178.776) scale(0.065 -0.065)">
+    <g transform="translate(167.175 173.736) scale(0.065 -0.065)">
      <defs>
       <path id="Inter-Regular-59f" d="M 681 1897 
 C 681 984 956 31 1488 -872 
@@ -1164,7 +1164,7 @@ z
    </g>
    <g id="text_3">
     <!-- Inverter 1 -->
-    <g transform="translate(412.353633 174.442857) scale(0.075 -0.075)">
+    <g transform="translate(275.553633 169.402857) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-3d6" d="M 1503 0 
 L 2094 0 
@@ -1191,7 +1191,7 @@ z
      <use xlink:href="#Inter-Regular-540" transform="translate(392.03125 0)"/>
     </g>
     <!-- Sungrow SG110CX-P2 -->
-    <g transform="translate(389.611055 183.517564) scale(0.075 -0.075)">
+    <g transform="translate(252.811055 178.477564) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-18e" d="M 2053 -81 
 C 3128 -81 3744 506 3744 1269 
@@ -1297,7 +1297,7 @@ z
      <use xlink:href="#Inter-Regular-541" transform="translate(978.1875 0)"/>
     </g>
     <!-- 110 kW / 110 kVA -->
-    <g transform="translate(399.446602 192.592271) scale(0.075 -0.075)">
+    <g transform="translate(262.646602 187.552271) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-5b1" d="M 2163 4875 
 L 1644 4875 
@@ -1325,7 +1325,7 @@ z
      <use xlink:href="#Inter-Regular-2" transform="translate(707.890625 0)"/>
     </g>
     <!-- built-in DC switch, DC SPD, -->
-    <g transform="translate(380.071992 201.666979) scale(0.075 -0.075)">
+    <g transform="translate(243.271992 196.626979) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-5b5" d="M 2494 2247 
 L 450 2247 
@@ -1379,7 +1379,7 @@ z
      <use xlink:href="#Inter-Regular-5df" transform="translate(1264.734375 0)"/>
     </g>
     <!-- anti-islanding -->
-    <g transform="translate(404.561836 210.741686) scale(0.075 -0.075)">
+    <g transform="translate(267.761836 205.701686) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-1fc"/>
      <use xlink:href="#Inter-Regular-307" transform="translate(56.15625 0)"/>
      <use xlink:href="#Inter-Regular-37b" transform="translate(115.234375 0)"/>
@@ -1398,7 +1398,7 @@ z
    </g>
    <g id="text_4">
     <!-- MCCB 200 A -->
-    <g transform="translate(560.530156 183.94066) scale(0.07 -0.07)">
+    <g transform="translate(423.730156 178.90066) scale(0.07 -0.07)">
      <defs>
       <path id="Inter-Regular-41" d="M 563 0 
 L 2266 0 
@@ -1438,7 +1438,7 @@ z
      <use xlink:href="#Inter-Regular-2" transform="translate(545.28125 0)"/>
     </g>
     <!-- (ASSUMED: -->
-    <g transform="translate(562.443125 192.410387) scale(0.07 -0.07)">
+    <g transform="translate(425.643125 187.370387) scale(0.07 -0.07)">
      <defs>
       <path id="Inter-Regular-1a9" d="M 2384 -75 
 C 3481 -75 4200 625 4200 1584 
@@ -1478,7 +1478,7 @@ z
      <use xlink:href="#Inter-Regular-5e4" transform="translate(530.8125 0)"/>
     </g>
     <!-- 1.25 x 158.8 A) -->
-    <g transform="translate(557.643203 200.880113) scale(0.07 -0.07)">
+    <g transform="translate(420.843203 195.840113) scale(0.07 -0.07)">
      <defs>
       <path id="Inter-Regular-549" d="M 1978 -63 
 C 2916 -63 3578 478 3578 1238 
@@ -1534,7 +1534,7 @@ z
    </g>
    <g id="text_5">
     <!-- West slope PV array -->
-    <g transform="translate(197.471602 385.114857) scale(0.075 -0.075)">
+    <g transform="translate(60.671602 380.074857) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-1cc"/>
      <use xlink:href="#Inter-Regular-267" transform="translate(93.453125 0)"/>
      <use xlink:href="#Inter-Regular-369" transform="translate(151.75 0)"/>
@@ -1556,7 +1556,7 @@ z
      <use xlink:href="#Inter-Regular-3e8" transform="translate(898.6875 0)"/>
     </g>
     <!-- 16 strings x 17 modules -->
-    <g transform="translate(192.315938 394.189564) scale(0.075 -0.075)">
+    <g transform="translate(55.515938 389.149564) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-540"/>
      <use xlink:href="#Inter-Regular-547" transform="translate(40.671875 0)"/>
      <use xlink:href="#Inter-Regular-6eb" transform="translate(102.6875 0)"/>
@@ -1582,7 +1582,7 @@ z
      <use xlink:href="#Inter-Regular-369" transform="translate(1039.59375 0)"/>
     </g>
     <!-- = 272 x 565 Wp = 153.7 kWp -->
-    <g transform="translate(181.899141 403.264271) scale(0.075 -0.075)">
+    <g transform="translate(45.099141 398.224271) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-5ff"/>
      <use xlink:href="#Inter-Regular-6eb" transform="translate(66.15625 0)"/>
      <use xlink:href="#Inter-Regular-541" transform="translate(94.28125 0)"/>
@@ -1611,7 +1611,7 @@ z
      <use xlink:href="#Inter-Regular-34d" transform="translate(1308.921875 0)"/>
     </g>
     <!-- 2 strings per MPPT, no string fuses -->
-    <g transform="translate(170.825508 412.338979) scale(0.075 -0.075)">
+    <g transform="translate(34.025508 407.298979) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-541"/>
      <use xlink:href="#Inter-Regular-6eb" transform="translate(60.984375 0)"/>
      <use xlink:href="#Inter-Regular-369" transform="translate(89.109375 0)"/>
@@ -1649,7 +1649,7 @@ z
      <use xlink:href="#Inter-Regular-369" transform="translate(1612.671875 0)"/>
     </g>
     <!-- (2 x Isc = 27.5 A &lt; module 30 A fuse rating) -->
-    <g transform="translate(156.334102 421.413686) scale(0.075 -0.075)">
+    <g transform="translate(19.534102 416.373686) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-5a8"/>
      <use xlink:href="#Inter-Regular-541" transform="translate(36.46875 0)"/>
      <use xlink:href="#Inter-Regular-6eb" transform="translate(97.453125 0)"/>
@@ -1698,7 +1698,7 @@ z
    </g>
    <g id="text_6">
     <!-- DC PV cable -->
-    <g transform="translate(318.65332 381.583254) scale(0.065 -0.065)">
+    <g transform="translate(181.85332 376.543254) scale(0.065 -0.065)">
      <use xlink:href="#Inter-Regular-54"/>
      <use xlink:href="#Inter-Regular-49" transform="translate(72.171875 0)"/>
      <use xlink:href="#Inter-Regular-6eb" transform="translate(145.21875 0)"/>
@@ -1712,7 +1712,7 @@ z
      <use xlink:href="#Inter-Regular-267" transform="translate(534.0625 0)"/>
     </g>
     <!-- (size to be calculated) -->
-    <g transform="translate(303.975 389.448) scale(0.065 -0.065)">
+    <g transform="translate(167.175 384.408) scale(0.065 -0.065)">
      <use xlink:href="#Inter-Regular-59f"/>
      <use xlink:href="#Inter-Regular-369" transform="translate(36.46875 0)"/>
      <use xlink:href="#Inter-Regular-2b2" transform="translate(89.25 0)"/>
@@ -1740,7 +1740,7 @@ z
    </g>
    <g id="text_7">
     <!-- Inverter 2 -->
-    <g transform="translate(411.591914 385.114857) scale(0.075 -0.075)">
+    <g transform="translate(274.791914 380.074857) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-c5"/>
      <use xlink:href="#Inter-Regular-307" transform="translate(26.859375 0)"/>
      <use xlink:href="#Inter-Regular-3d6" transform="translate(84.46875 0)"/>
@@ -1753,7 +1753,7 @@ z
      <use xlink:href="#Inter-Regular-541" transform="translate(392.03125 0)"/>
     </g>
     <!-- Sungrow SG110CX-P2 -->
-    <g transform="translate(389.611055 394.189564) scale(0.075 -0.075)">
+    <g transform="translate(252.811055 389.149564) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-18e"/>
      <use xlink:href="#Inter-Regular-395" transform="translate(64.15625 0)"/>
      <use xlink:href="#Inter-Regular-307" transform="translate(123.28125 0)"/>
@@ -1774,7 +1774,7 @@ z
      <use xlink:href="#Inter-Regular-541" transform="translate(978.1875 0)"/>
     </g>
     <!-- 110 kW / 110 kVA -->
-    <g transform="translate(399.446602 403.264271) scale(0.075 -0.075)">
+    <g transform="translate(262.646602 398.224271) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-540"/>
      <use xlink:href="#Inter-Regular-540" transform="translate(40.671875 0)"/>
      <use xlink:href="#Inter-Regular-53f" transform="translate(81.34375 0)"/>
@@ -1793,7 +1793,7 @@ z
      <use xlink:href="#Inter-Regular-2" transform="translate(707.890625 0)"/>
     </g>
     <!-- built-in DC switch, DC SPD, -->
-    <g transform="translate(380.071992 412.338979) scale(0.075 -0.075)">
+    <g transform="translate(243.271992 407.298979) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-243"/>
      <use xlink:href="#Inter-Regular-395" transform="translate(61.234375 0)"/>
      <use xlink:href="#Inter-Regular-2b2" transform="translate(120.359375 0)"/>
@@ -1823,7 +1823,7 @@ z
      <use xlink:href="#Inter-Regular-5df" transform="translate(1264.734375 0)"/>
     </g>
     <!-- anti-islanding -->
-    <g transform="translate(404.561836 421.413686) scale(0.075 -0.075)">
+    <g transform="translate(267.761836 416.373686) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-1fc"/>
      <use xlink:href="#Inter-Regular-307" transform="translate(56.15625 0)"/>
      <use xlink:href="#Inter-Regular-37b" transform="translate(115.234375 0)"/>
@@ -1842,7 +1842,7 @@ z
    </g>
    <g id="text_8">
     <!-- MCCB 200 A -->
-    <g transform="translate(560.530156 394.61266) scale(0.07 -0.07)">
+    <g transform="translate(423.730156 389.57266) scale(0.07 -0.07)">
      <use xlink:href="#Inter-Regular-125"/>
      <use xlink:href="#Inter-Regular-49" transform="translate(90.328125 0)"/>
      <use xlink:href="#Inter-Regular-49" transform="translate(163.375 0)"/>
@@ -1855,7 +1855,7 @@ z
      <use xlink:href="#Inter-Regular-2" transform="translate(545.28125 0)"/>
     </g>
     <!-- (ASSUMED: -->
-    <g transform="translate(562.443125 403.082387) scale(0.07 -0.07)">
+    <g transform="translate(425.643125 398.042387) scale(0.07 -0.07)">
      <use xlink:href="#Inter-Regular-5a8"/>
      <use xlink:href="#Inter-Regular-2" transform="translate(36.46875 0)"/>
      <use xlink:href="#Inter-Regular-18e" transform="translate(105.46875 0)"/>
@@ -1867,7 +1867,7 @@ z
      <use xlink:href="#Inter-Regular-5e4" transform="translate(530.8125 0)"/>
     </g>
     <!-- 1.25 x 158.8 A) -->
-    <g transform="translate(557.643203 411.552113) scale(0.07 -0.07)">
+    <g transform="translate(420.843203 406.512113) scale(0.07 -0.07)">
      <use xlink:href="#Inter-Regular-540"/>
      <use xlink:href="#Inter-Regular-5e0" transform="translate(40.671875 0)"/>
      <use xlink:href="#Inter-Regular-541" transform="translate(69.484375 0)"/>
@@ -1887,7 +1887,7 @@ z
    </g>
    <g id="text_9">
     <!-- Plant AC panel -->
-    <g transform="translate(720.731602 288.094857) scale(0.075 -0.075)">
+    <g transform="translate(583.931602 283.054857) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-178"/>
      <use xlink:href="#Inter-Regular-2e2" transform="translate(63.875 0)"/>
      <use xlink:href="#Inter-Regular-1fc" transform="translate(88.09375 0)"/>
@@ -1904,7 +1904,7 @@ z
      <use xlink:href="#Inter-Regular-2e2" transform="translate(666.671875 0)"/>
     </g>
     <!-- Main MCCB 400 A -->
-    <g transform="translate(713.797617 297.169564) scale(0.075 -0.075)">
+    <g transform="translate(576.997617 292.129564) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-544" d="M 375 947 
 L 2566 947 
@@ -1945,7 +1945,7 @@ z
      <use xlink:href="#Inter-Regular-2" transform="translate(806.796875 0)"/>
     </g>
     <!-- (ASSUMED) -->
-    <g transform="translate(725.366953 306.244271) scale(0.075 -0.075)">
+    <g transform="translate(588.566953 301.204271) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-5a8"/>
      <use xlink:href="#Inter-Regular-2" transform="translate(36.46875 0)"/>
      <use xlink:href="#Inter-Regular-18e" transform="translate(105.46875 0)"/>
@@ -1957,7 +1957,7 @@ z
      <use xlink:href="#Inter-Regular-5a9" transform="translate(530.8125 0)"/>
     </g>
     <!-- AC SPD -->
-    <g transform="translate(732.879258 315.318979) scale(0.075 -0.075)">
+    <g transform="translate(596.079258 310.278979) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-2"/>
      <use xlink:href="#Inter-Regular-49" transform="translate(65.578125 0)"/>
      <use xlink:href="#Inter-Regular-6eb" transform="translate(138.625 0)"/>
@@ -1966,7 +1966,7 @@ z
      <use xlink:href="#Inter-Regular-54" transform="translate(294.78125 0)"/>
     </g>
     <!-- Generation meter -->
-    <g transform="translate(715.823789 324.393686) scale(0.075 -0.075)">
+    <g transform="translate(579.023789 319.353686) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-8d"/>
      <use xlink:href="#Inter-Regular-267" transform="translate(74.609375 0)"/>
      <use xlink:href="#Inter-Regular-307" transform="translate(132.90625 0)"/>
@@ -1987,7 +1987,7 @@ z
    </g>
    <g id="text_10">
     <!-- Client LT bus (415 V) -->
-    <g transform="translate(838.427461 297.169564) scale(0.075 -0.075)">
+    <g transform="translate(701.627461 292.129564) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-11a" d="M 563 0 
 L 3313 0 
@@ -2022,7 +2022,7 @@ z
      <use xlink:href="#Inter-Regular-5a9" transform="translate(938.265625 0)"/>
     </g>
     <!-- existing main incomer -->
-    <g transform="translate(836.272383 306.244271) scale(0.075 -0.075)">
+    <g transform="translate(699.472383 301.204271) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-267"/>
      <use xlink:href="#Inter-Regular-3e3" transform="translate(56.046875 0)"/>
      <use xlink:href="#Inter-Regular-2b2" transform="translate(110.640625 0)"/>
@@ -2046,7 +2046,7 @@ z
      <use xlink:href="#Inter-Regular-356" transform="translate(994.5625 0)"/>
     </g>
     <!-- + new plant breaker -->
-    <g transform="translate(839.63332 315.318979) scale(0.075 -0.075)">
+    <g transform="translate(702.83332 310.278979) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-5f4" d="M 1853 313 
 L 2381 313 
@@ -2087,7 +2087,7 @@ z
    </g>
    <g id="text_11">
     <!-- Client transformer -->
-    <g transform="translate(842.922188 410.821564) scale(0.075 -0.075)">
+    <g transform="translate(706.122188 405.781564) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-49"/>
      <use xlink:href="#Inter-Regular-2e2" transform="translate(73.046875 0)"/>
      <use xlink:href="#Inter-Regular-2b2" transform="translate(97.265625 0)"/>
@@ -2108,7 +2108,7 @@ z
      <use xlink:href="#Inter-Regular-356" transform="translate(817.234375 0)"/>
     </g>
     <!-- 11 kV / 415 V -->
-    <g transform="translate(852.972188 419.896271) scale(0.075 -0.075)">
+    <g transform="translate(716.172188 414.856271) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-540"/>
      <use xlink:href="#Inter-Regular-540" transform="translate(40.671875 0)"/>
      <use xlink:href="#Inter-Regular-6eb" transform="translate(81.34375 0)"/>
@@ -2124,7 +2124,7 @@ z
      <use xlink:href="#Inter-Regular-1c9" transform="translate(517.875 0)"/>
     </g>
     <!-- 350 kVA (ASSUMED) -->
-    <g transform="translate(837.658125 428.970979) scale(0.075 -0.075)">
+    <g transform="translate(700.858125 423.930979) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-543"/>
      <use xlink:href="#Inter-Regular-545" transform="translate(61.765625 0)"/>
      <use xlink:href="#Inter-Regular-53f" transform="translate(122.5625 0)"/>
@@ -2146,7 +2146,7 @@ z
    </g>
    <g id="text_12">
     <!-- NET METER -->
-    <g transform="translate(853.69582 493.981564) scale(0.075 -0.075)">
+    <g transform="translate(716.89582 488.941564) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-12d" d="M 563 0 
 L 1159 0 
@@ -2198,7 +2198,7 @@ z
      <use xlink:href="#Inter-Regular-181" transform="translate(503.21875 0)"/>
     </g>
     <!-- (utility, HT side) -->
-    <g transform="translate(847.108125 503.056271) scale(0.075 -0.075)">
+    <g transform="translate(710.308125 498.016271) scale(0.075 -0.075)">
      <defs>
       <path id="Inter-Regular-a1" d="M 563 0 
 L 1156 0 
@@ -2236,7 +2236,7 @@ z
      <use xlink:href="#Inter-Regular-5a0" transform="translate(706.78125 0)"/>
     </g>
     <!-- then 11 kV supply -->
-    <g transform="translate(844.450898 512.130979) scale(0.075 -0.075)">
+    <g transform="translate(707.650898 507.090979) scale(0.075 -0.075)">
      <use xlink:href="#Inter-Regular-37b"/>
      <use xlink:href="#Inter-Regular-29f" transform="translate(32.71875 0)"/>
      <use xlink:href="#Inter-Regular-267" transform="translate(91.84375 0)"/>
@@ -2258,7 +2258,7 @@ z
    </g>
    <g id="text_13">
     <!-- WBSEDCL -->
-    <g transform="translate(992.16 498.398312) scale(0.08 -0.08)">
+    <g transform="translate(855.36 493.358313) scale(0.08 -0.08)">
      <defs>
       <path id="Inter-Bold-1cc" d="M 1403 0 
 L 2494 0 
@@ -2388,7 +2388,7 @@ z
      <use xlink:href="#Inter-Bold-11a" transform="translate(442.34375 0)"/>
     </g>
     <!-- 11 kV line -->
-    <g transform="translate(992.16 508.078) scale(0.08 -0.08)">
+    <g transform="translate(855.36 503.038) scale(0.08 -0.08)">
      <defs>
       <path id="Inter-Bold-540" d="M 2341 4656 
 L 1319 4656 
@@ -2497,7 +2497,7 @@ z
    </g>
    <g id="text_14">
     <!-- Earthing: array frames and inverters bonded to the plant earth (IS 3043); lightning protection per site assessment. -->
-    <g transform="translate(160.119562 491.265562) scale(0.072 -0.072)">
+    <g transform="translate(23.319562 486.225563) scale(0.072 -0.072)">
      <defs>
       <path id="Inter-Regular-5e3" d="M 922 -41 
 C 1156 -41 1344 147 1344 381 
@@ -2643,7 +2643,7 @@ z
      <use xlink:href="#Inter-Regular-5e0" transform="translate(5335.921875 0)"/>
     </g>
     <!-- Anti-islanding and grid-support functions are in the inverter (WBSEDCL document, 'Responsibility' table). -->
-    <g transform="translate(174.425625 499.977281) scale(0.072 -0.072)">
+    <g transform="translate(37.625625 494.937281) scale(0.072 -0.072)">
      <defs>
       <path id="Inter-Regular-5ce" d="M 725 2884 
 L 1194 2884 
@@ -2760,7 +2760,7 @@ z
      <use xlink:href="#Inter-Regular-5e0" transform="translate(4938.53125 0)"/>
     </g>
     <!-- Net meter must be on the HT side of the transformer when an HT consumer connects at its LT bus -->
-    <g transform="translate(186.410812 508.689) scale(0.072 -0.072)">
+    <g transform="translate(49.610813 503.649) scale(0.072 -0.072)">
      <use xlink:href="#Inter-Regular-12d"/>
      <use xlink:href="#Inter-Regular-267" transform="translate(75.34375 0)"/>
      <use xlink:href="#Inter-Regular-37b" transform="translate(133.640625 0)"/>
@@ -2857,7 +2857,7 @@ z
      <use xlink:href="#Inter-Regular-369" transform="translate(4581.640625 0)"/>
     </g>
     <!-- (WBSEDCL procedures, 'Voltage level of connectivity'). -->
-    <g transform="translate(259.183125 517.400719) scale(0.072 -0.072)">
+    <g transform="translate(122.383125 512.360719) scale(0.072 -0.072)">
      <use xlink:href="#Inter-Regular-5a8"/>
      <use xlink:href="#Inter-Regular-1cc" transform="translate(36.46875 0)"/>
      <use xlink:href="#Inter-Regular-41" transform="translate(135 0)"/>
@@ -2917,7 +2917,7 @@ z
   </g>
   <g id="text_15">
    <!-- Single-line diagram: 307.4 kWp rooftop plant, 2 x 110 kVA inverters, connected at the client's LT bus (anonymised site, assumed values) -->
-   <g transform="translate(224.229453 22.89625) scale(0.11 -0.11)">
+   <g transform="translate(87.429453 17.85625) scale(0.11 -0.11)">
     <use xlink:href="#Inter-Regular-18e"/>
     <use xlink:href="#Inter-Regular-2b2" transform="translate(64.15625 0)"/>
     <use xlink:href="#Inter-Regular-307" transform="translate(88.375 0)"/>
@@ -3057,8 +3057,8 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p104259c2a7">
-   <rect x="144" y="73.44" width="892.8" height="471.24"/>
+  <clipPath id="pd10b5a93ef">
+   <rect x="7.2" y="68.4" width="892.8" height="471.24"/>
   </clipPath>
  </defs>
 </svg>
