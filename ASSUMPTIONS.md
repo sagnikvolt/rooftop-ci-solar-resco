@@ -31,3 +31,5 @@ Format: parameter | value | source | reason. Add a row for every design or finan
 | PVsyst inverter model | SG110CX-P2 (110 kWac, 180-1000 V, 12 MPPT) | PVsyst database | The plain SG110CX is not in the database; same power rating. Multi-MPPT off, one inverter per slope |
 | PVsyst losses | PVsyst defaults for wiring, mismatch, quality, thermal (Uc 20 W/m²K) | PVsyst defaults | No site data. Soiling, shading and unavailability are left at zero, so yield is optimistic; see pvsyst/results.md |
 | Bifacial gain | Not modelled | Design choice | Flush metal roof, almost no rear gain; safe side |
+| Wind speed for Hooghly | 50 m/s, same as Kolkata | VERIFICATION.md (partly verified) | Hooghly is next to Kolkata and not listed separately |
+| Wind k factors, Cpe, Cpi | Not chosen; k = 1 used only to illustrate 1.5 kN/m² | ASSUMED | Code tables not fetched; real roof needs an engineer's check |
