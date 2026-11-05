@@ -58,3 +58,16 @@ class SizingTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_ac_current_matches_datasheet():
+    import ac_side
+    # datasheet max AC current for SG110CX is 158.8 A; 110 kVA / (sqrt3 x 400 V) = 158.77 A
+    assert abs(ac_side.ac_current_a(110) - 158.8) < 0.1
+
+
+def test_breaker_sizes():
+    import ac_side
+    r = ac_side.ac_side(2)
+    assert r["breaker_per_inverter_a"] == 200      # 158.8 x 1.25 = 198.5 A -> 200 A
+    assert r["breaker_main_a"] == 400              # 317.5 x 1.25 = 397 A -> 400 A

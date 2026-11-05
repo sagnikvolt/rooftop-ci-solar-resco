@@ -33,3 +33,6 @@ Format: parameter | value | source | reason. Add a row for every design or finan
 | Bifacial gain | Not modelled | Design choice | Flush metal roof, almost no rear gain; safe side |
 | Wind speed for Hooghly | 50 m/s, same as Kolkata | VERIFICATION.md (partly verified) | Hooghly is next to Kolkata and not listed separately |
 | Wind k factors, Cpe, Cpi | Not chosen; k = 1 used only to illustrate 1.5 kN/m² | ASSUMED | Code tables not fetched; real roof needs an engineer's check |
+| AC breaker sizes | 200 A per inverter, 400 A main | ASSUMED (125 % of continuous current, next standard frame) | design/ac_side.py; to be confirmed by a protection study |
+| Grid connection | Plant ties into the client's LT bus; net meter on the HT side | VERIFICATION.md (WBSEDCL document) | Rule for an HT consumer connecting at its LT bus |
+| Cap reading | Cap applied as 350 kVA x 0.95 = 332 kWp | ASSUMED (generous reading) | The WBSEDCL document pairs 170 kW with 200 kVA (about 0.85), which would give 297.5 kW; see grid/grid_connection_note.md |
