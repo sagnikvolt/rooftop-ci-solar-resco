@@ -17,3 +17,13 @@ Format: parameter | value | source | reason. Add a row for every design or finan
 | Supply | HV industrial, 11 kV, WBSEDCL area (rate E(B)), contract demand 350 kVA, power factor 0.95 | ASSUMED | WBSEDCL HV rate found in VERIFICATION.md; confirm which licensee supplies the exact site |
 | Monthly consumption | 120,000 kWh average (1,440,000 kWh per year), 10 % higher May to Sep, 5 % lower Nov to Feb | ASSUMED | Gives an average load of 164 kW and a peak of 293.5 kW, below the 332 kW contract demand |
 | Daytime share | 63.3 % of annual energy falls between 06:00 and 17:00; 46.2 % between 08:00 and 16:00 | Computed by survey/hourly_load.py | Result of the shift pattern above |
+| Record low temperature | 3.4 degC | Project 1 (Kolkata data), see that repo | Reused; the Singur belt is close; to be checked against site data |
+| Hot cell temperature | 75 degC | ASSUMED | Flush-mounted modules on a metal roof run hot with little air flow behind |
+| Voc safety margin | 5 % below the voltage limit | Same as Project 1 | Keeps strings clear of the inverter and MC4 limits on the coldest morning |
+| Modules in series | 17 (931.8 V cold, 629.4 V hot) | Computed by design/strings.py | 18 would be only 1.3 % under the 1,000 V MC4 limit |
+| Strings per MPPT | 2, with both strings on the same roof slope | Design choice | 2 x Imp = 25.94 A, just under the 26 A limit; Project 1 had an MPPT current problem, checked here. Short bursts above 26 A at high irradiance cause a little clipping, to be seen in PVsyst |
+| Module gap | 0.02 m between modules | ASSUMED | Typical clamp gap |
+| Module layout | Portrait, long side up the slope, flush with the roof | ASSUMED | Standard for metal sheet roofs with rails |
+| Peak AC output | 0.80 kW per kWp for an east-west flush roof | ASSUMED | Used only to set the load limit; to be replaced by PVsyst results |
+| Number of inverters | 2 x Sungrow SG110CX (220 kVA) | Design choice | Fits 307 kWp; DC/AC 1.40 is high but east-west output peaks lower; PVsyst will show the clipping loss |
+| Regulatory limit | 332 kW (the lower of 500 kW and 350 kVA x 0.95) | VERIFICATION.md (partly verified) | Applied as kWp, the safer reading, because the unit is not stated |
